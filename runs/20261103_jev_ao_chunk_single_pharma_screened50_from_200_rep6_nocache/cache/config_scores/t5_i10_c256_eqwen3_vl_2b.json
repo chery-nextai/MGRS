@@ -1,0 +1,522 @@
+{
+  "config_id": "t5_i10_c256_eqwen3_vl_2b",
+  "metric": "mean_jev_support",
+  "mean_jev_support": 0.64645375,
+  "mean_jev_support_raw": 0.8121999999999998,
+  "mean_jev_redundancy": 0.40230000000000005,
+  "redundancy_gamma": 0.5,
+  "redundancy_mode": "scale",
+  "mean_text_hit_at_k": 0.0,
+  "mean_image_hit_at_k": 0.0,
+  "query_count": 50,
+  "jev_cache_hits": 14,
+  "jev_new_calls": 36,
+  "jev_choice_counts": {
+    "supported": 45,
+    "insufficient": 5
+  },
+  "evaluations": [
+    {
+      "id": "pharmaceuticals:q:4",
+      "jev_support_score": 0.75875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.48250000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "9f111e0f903f07e7ef3a2767c205ce493824f4798020147b79d4fb4fd1d7f3b5",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:7",
+      "jev_support_score": 0.7469375,
+      "jev_support_raw": 0.85,
+      "jev_redundancy": 0.2425,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a2e9165d03b8895bbd0c66cc1fe67f0cb55037eb2052836c4302c0848db1f341",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:10",
+      "jev_support_score": 0.7808499999999999,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.39,
+      "jev_choice": "supported",
+      "jev_fingerprint": "70a5eb3030a3df773404ed967ce3adc740ca15005ac8dfa56590522dc9783d5f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:14",
+      "jev_support_score": 0.6536,
+      "jev_support_raw": 0.76,
+      "jev_redundancy": 0.28,
+      "jev_choice": "supported",
+      "jev_fingerprint": "c936e1f64474d9fd36986d104a38035af540da1278d4dc46e5aa1294df25f3f1",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:15",
+      "jev_support_score": 0.8160125,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.3175,
+      "jev_choice": "supported",
+      "jev_fingerprint": "571bc7d11f3f6a6b70fb9ddbd8e846556b0076e01a678a57c53bfa6f5bd6285b",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:22",
+      "jev_support_score": 0.55875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.8825000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "f6527a549889d69a30f29ac3363b74833fe65f854ac3e57b51bbc1057483e7ae",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:29",
+      "jev_support_score": 0.69915,
+      "jev_support_raw": 0.79,
+      "jev_redundancy": 0.22999999999999998,
+      "jev_choice": "supported",
+      "jev_fingerprint": "d0d6ef1320a9c8696e97194dcf40d377df51d400bc687aeec9105bdfbb22f64f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:35",
+      "jev_support_score": 0.411875,
+      "jev_support_raw": 0.5,
+      "jev_redundancy": 0.35250000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "037312f7ae9d479912af0236f31c9a8a0b2e7c3f9ac96325b0f287eeb0e46670",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:38",
+      "jev_support_score": 0.7788750000000001,
+      "jev_support_raw": 0.93,
+      "jev_redundancy": 0.325,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a281a5c2639c80b0e9791d430093177910cb45c42a8803b15dc0116f3e9a639a",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:39",
+      "jev_support_score": 0.5118499999999999,
+      "jev_support_raw": 0.58,
+      "jev_redundancy": 0.23500000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "48bfeed2592d185bcbec3bcc9087f09f3ce405116197eee714409e0caf6017c2",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:41",
+      "jev_support_score": 0.7992,
+      "jev_support_raw": 0.96,
+      "jev_redundancy": 0.335,
+      "jev_choice": "supported",
+      "jev_fingerprint": "3bcc5f76512f83f5c119b84e714727a62070597f0de12fbf01120573a657666c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:50",
+      "jev_support_score": 0.82375,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.3525,
+      "jev_choice": "supported",
+      "jev_fingerprint": "444b9118a9174242c9643046765afb46aadd1a4b5791a0d632dd766aebd83476",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:51",
+      "jev_support_score": 0.815,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.37,
+      "jev_choice": "supported",
+      "jev_fingerprint": "ac80b8c59c109556f8737af60fef0003d07f1a17b642c2cc7b3a263bd7de4043",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:57",
+      "jev_support_score": 0.2825625,
+      "jev_support_raw": 0.33,
+      "jev_redundancy": 0.28750000000000003,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "b9a961ed4f4b47cb0d6e6b0a78f3e6924013ab624e2b35bb9448d994670ac540",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:60",
+      "jev_support_score": 0.6545500000000001,
+      "jev_support_raw": 0.76,
+      "jev_redundancy": 0.27749999999999997,
+      "jev_choice": "supported",
+      "jev_fingerprint": "eac0c300f0016541db0648bfa73bf91eee3482ab6df10502e806e9d2716d64b3",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:62",
+      "jev_support_score": 0.8269624999999999,
+      "jev_support_raw": 0.91,
+      "jev_redundancy": 0.1825,
+      "jev_choice": "supported",
+      "jev_fingerprint": "df1f21f9566501d063c66f2cac29f6bcb06ad85c9f68a6352b0fb0e70e716a46",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:66",
+      "jev_support_score": 0.8724375,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.23750000000000002,
+      "jev_choice": "supported",
+      "jev_fingerprint": "390cfc6e43e1f529991ecd648757a08eafef9ac5e2ff346a8bcfb1399b430b05",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:79",
+      "jev_support_score": 0.752625,
+      "jev_support_raw": 0.9,
+      "jev_redundancy": 0.3275,
+      "jev_choice": "supported",
+      "jev_fingerprint": "b0a67dd31426199a02c9fa3ccd8b33374bb2a00608e9d21b8e814604e9c31345",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:85",
+      "jev_support_score": 0.0,
+      "jev_support_raw": 0.0,
+      "jev_redundancy": 0.61,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "ac532ddd885563b420fc24e3dc4f8e620ef3e2ec4e009dca1d4e442512366aca",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:87",
+      "jev_support_score": 0.8426875,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.2625,
+      "jev_choice": "supported",
+      "jev_fingerprint": "e2b72ff21a5e5f3bc4489d0c4a2949d6d00ad0cf4c69b495165a1dc94a1b9436",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:97",
+      "jev_support_score": 0.69495,
+      "jev_support_raw": 0.82,
+      "jev_redundancy": 0.305,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2d17bef23d0e06f55456067d4284f6883bdc346666f348f1951f568307e22573",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:102",
+      "jev_support_score": 0.7896,
+      "jev_support_raw": 0.94,
+      "jev_redundancy": 0.32,
+      "jev_choice": "supported",
+      "jev_fingerprint": "341e52b54b9ab1ebef1a6e36fae1d21b5c9a9b6b2a7d029c00a5f6582290f40c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:103",
+      "jev_support_score": 0.89375,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.2125,
+      "jev_choice": "supported",
+      "jev_fingerprint": "87703b73d4843d3923adf0dde123c4f680bdf6914a3457452ba5ee45b6e1c9b6",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:105",
+      "jev_support_score": 0.15885,
+      "jev_support_raw": 0.18,
+      "jev_redundancy": 0.23500000000000001,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "2fcbc25d6f4e6a635fdccef3f3d3e655dc640573c9dd3d78a09a11337c763b3a",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:106",
+      "jev_support_score": 0.79625,
+      "jev_support_raw": 0.98,
+      "jev_redundancy": 0.375,
+      "jev_choice": "supported",
+      "jev_fingerprint": "52ec883e9ec938b8958f1f5e63085d8b38f25d6df4d9706bb51414b5a792fe6f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:117",
+      "jev_support_score": 0.51675,
+      "jev_support_raw": 0.6,
+      "jev_redundancy": 0.27749999999999997,
+      "jev_choice": "supported",
+      "jev_fingerprint": "44c7c3789529ae1af3e2c49094abfd6b85c027bed1fcadf25d1b56a99c2002bf",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:118",
+      "jev_support_score": 0.464725,
+      "jev_support_raw": 0.58,
+      "jev_redundancy": 0.3975,
+      "jev_choice": "supported",
+      "jev_fingerprint": "19d83d8c9605522f4271c74fa9e71a31ab003cd2543e12f7b6c089ad9924171c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:119",
+      "jev_support_score": 0.489125,
+      "jev_support_raw": 0.91,
+      "jev_redundancy": 0.925,
+      "jev_choice": "supported",
+      "jev_fingerprint": "9c252e8faf7374a79f034a4db180f32713b898c121f39d4dbcaf401cdd46dcd0",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:131",
+      "jev_support_score": 0.7079625,
+      "jev_support_raw": 0.93,
+      "jev_redundancy": 0.4775,
+      "jev_choice": "supported",
+      "jev_fingerprint": "670a62132448b6fb510692197727f6c10803913441a0aa1602434778d2549f46",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:133",
+      "jev_support_score": 0.6768,
+      "jev_support_raw": 0.96,
+      "jev_redundancy": 0.5900000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "bceab8a75d8daf455a41e99e572c599b9470b751fa0dad99158521d342955524",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:135",
+      "jev_support_score": 0.8172,
+      "jev_support_raw": 0.96,
+      "jev_redundancy": 0.2975,
+      "jev_choice": "supported",
+      "jev_fingerprint": "3ad0f6880953029fa4cf28310d227cb9dd14f3c3847107d7dbe0f19ba3dfc578",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:137",
+      "jev_support_score": 0.52355,
+      "jev_support_raw": 0.74,
+      "jev_redundancy": 0.585,
+      "jev_choice": "supported",
+      "jev_fingerprint": "85b7b26226ecca9c199bb2c5166603141365a3e2adb1debf1911837538753d90",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:138",
+      "jev_support_score": 0.760275,
+      "jev_support_raw": 0.93,
+      "jev_redundancy": 0.365,
+      "jev_choice": "supported",
+      "jev_fingerprint": "49e39e38da985394884f39c7b3a7d70944f7af45c3346d92bde42efba34b98f1",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:140",
+      "jev_support_score": 0.8897624999999999,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.2025,
+      "jev_choice": "supported",
+      "jev_fingerprint": "fccbc6866b5e07b90553e9e5a96a54c7f22183fc847280de769d46880886ccf6",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:141",
+      "jev_support_score": 0.5085,
+      "jev_support_raw": 0.6,
+      "jev_redundancy": 0.30500000000000005,
+      "jev_choice": "supported",
+      "jev_fingerprint": "1333ca703e4d7e3fc8b6e757d9f1ba4e6a7c1ec7f004ae0642d0e5ad28699710",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:142",
+      "jev_support_score": 0.7991875,
+      "jev_support_raw": 0.95,
+      "jev_redundancy": 0.3175,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a8da53d8715b99ed645dc3859020d2f9d5d6b221ef80c62d6e6cc34656def8d0",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:145",
+      "jev_support_score": 0.7843000000000001,
+      "jev_support_raw": 0.92,
+      "jev_redundancy": 0.295,
+      "jev_choice": "supported",
+      "jev_fingerprint": "875d7657b46ac6883a77219badf886469afaa6880686f3e72e8d447c98b7f511",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:149",
+      "jev_support_score": 0.6557499999999999,
+      "jev_support_raw": 0.86,
+      "jev_redundancy": 0.475,
+      "jev_choice": "supported",
+      "jev_fingerprint": "47ff08077d182b16ae8bdaa4482461a0d1f8028dfe8f5594fbe28aaf600885d2",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:155",
+      "jev_support_score": 0.5820750000000001,
+      "jev_support_raw": 0.78,
+      "jev_redundancy": 0.5075,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a798ae0757dbb794908d952c4f60c2830184e1afe32fb7e895dbb9013c99fdcb",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:164",
+      "jev_support_score": 0.665775,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.655,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2943836ca2c2dd90d1ad9c3dada51f293fafcb73e7cd5c3b416c8f504fee0408",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:169",
+      "jev_support_score": 0.6262249999999999,
+      "jev_support_raw": 0.74,
+      "jev_redundancy": 0.3075,
+      "jev_choice": "supported",
+      "jev_fingerprint": "4f16c0724a096a3c2c22ff828db914ca9c479ad6308c78ae6d9666071c137adb",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:170",
+      "jev_support_score": 0.7278125,
+      "jev_support_raw": 0.85,
+      "jev_redundancy": 0.2875,
+      "jev_choice": "supported",
+      "jev_fingerprint": "ea7e87ad245de3d77e91caead9c0194f87ca3681082dd43e2abd7144f7cb00af",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:175",
+      "jev_support_score": 0.273875,
+      "jev_support_raw": 0.35,
+      "jev_redundancy": 0.435,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "89c919f4d44f1f9fc19ed734a21fc865e4b15e2ef137a4cacd4dc401da586cba",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:177",
+      "jev_support_score": 0.46751250000000005,
+      "jev_support_raw": 0.91,
+      "jev_redundancy": 0.9724999999999999,
+      "jev_choice": "supported",
+      "jev_fingerprint": "49bfeb85ff4a14510b1d9d54ebc5a9eb211c7a36c661d401ce4a0f610564de0c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:180",
+      "jev_support_score": 0.5355,
+      "jev_support_raw": 0.85,
+      "jev_redundancy": 0.74,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2a4a03ef8a5d8db8a4e2b6fafbaec2352bd5da313586d97af6dde177d930a857",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:181",
+      "jev_support_score": 0.49857500000000005,
+      "jev_support_raw": 0.98,
+      "jev_redundancy": 0.9824999999999999,
+      "jev_choice": "supported",
+      "jev_fingerprint": "abb82a2891e5d5559623e81a2eed8850611f40646024bbfe7f0e4b42072bc3d5",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:188",
+      "jev_support_score": 0.18535000000000001,
+      "jev_support_raw": 0.22,
+      "jev_redundancy": 0.315,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "a5cca4d06a7905b8cd5bf93aa9eef8e4c6b2dc6e10e5e6d559503a608cc12b1d",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:190",
+      "jev_support_score": 0.771975,
+      "jev_support_raw": 0.94,
+      "jev_redundancy": 0.35749999999999993,
+      "jev_choice": "supported",
+      "jev_fingerprint": "5e2520d32dd0383f3a6ed308d2aad821b5f456c41fbaedea3d1e6f628c0a6cdf",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:193",
+      "jev_support_score": 0.83055,
+      "jev_support_raw": 0.98,
+      "jev_redundancy": 0.305,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a248de8d9bb95cfa49fb70621e277dfc8f5a35e8ca24ac9c7ae903334dfb206d",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "pharmaceuticals:q:195",
+      "jev_support_score": 0.84375,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.3125,
+      "jev_choice": "supported",
+      "jev_fingerprint": "8c19eba72abbb263ed09f1818763ad62823bab5c5d86ac5bb70d9bc648c4f2bc",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    }
+  ],
+  "sample_hash": "04805b109dcaf9744e48a8acf5cbc35c5cd6ee2cc85ae0047c598bb16568f0a7",
+  "reward_schema": "jev_ao_dual_support_plus_redundancy_qwen37_image_facts_g0.5_scale_agg"
+}

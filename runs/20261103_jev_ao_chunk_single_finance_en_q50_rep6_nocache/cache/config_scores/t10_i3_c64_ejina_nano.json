@@ -1,0 +1,523 @@
+{
+  "config_id": "t10_i3_c64_ejina_nano",
+  "metric": "mean_jev_support",
+  "mean_jev_support": 0.4551289999999999,
+  "mean_jev_support_raw": 0.5818,
+  "mean_jev_redundancy": 0.43975000000000003,
+  "redundancy_gamma": 0.5,
+  "redundancy_mode": "scale",
+  "mean_text_hit_at_k": 0.0,
+  "mean_image_hit_at_k": 0.0,
+  "query_count": 50,
+  "jev_cache_hits": 0,
+  "jev_new_calls": 50,
+  "jev_choice_counts": {
+    "insufficient": 16,
+    "supported": 31,
+    "conflict": 3
+  },
+  "evaluations": [
+    {
+      "id": "finance_en:q:3",
+      "jev_support_score": 0.16925,
+      "jev_support_raw": 0.2,
+      "jev_redundancy": 0.3075,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "30d978719f9301b89fea5ec029369d60d01a6bbc24e48c284fb1df700585c370",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:6",
+      "jev_support_score": 0.44715,
+      "jev_support_raw": 0.66,
+      "jev_redundancy": 0.645,
+      "jev_choice": "supported",
+      "jev_fingerprint": "331a7645d744b9f0888eb047f1b0bfc6b7273c4913106039d3a27efee14e96f9",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:8",
+      "jev_support_score": 0.46155,
+      "jev_support_raw": 0.51,
+      "jev_redundancy": 0.19,
+      "jev_choice": "supported",
+      "jev_fingerprint": "e3c05448f0ff88ffba4088a963539ddbe69ae9ac7bcc0a0fc42ba20cc5e60af2",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:18",
+      "jev_support_score": 0.07479999999999999,
+      "jev_support_raw": 0.11,
+      "jev_redundancy": 0.64,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "8708a634b774e0fdaba3853ef34ff4ef548a73deefd536e0c2d3e7759ca1de3e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:20",
+      "jev_support_score": 0.0086125,
+      "jev_support_raw": 0.01,
+      "jev_redundancy": 0.2775,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "731d4c0c32a35932a62f844b4bdcf595e6bb517594418393c37567f1fa62b11d",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:21",
+      "jev_support_score": 0.0084375,
+      "jev_support_raw": 0.01,
+      "jev_redundancy": 0.3125,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "9248cdcf0d5eb65a864b7a7cddd77c894350526e940df179dc3495ab3680b95f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:22",
+      "jev_support_score": 0.0,
+      "jev_support_raw": 0.0,
+      "jev_redundancy": 0.925,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "fde5cce81149384b6ce1cb4d82d57b2c9756b79be2e961eca6b9b6c6f39bed30",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:37",
+      "jev_support_score": 0.75875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.48250000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "fafdb8182f0e26bcde4b553ce8b50ad6577499b062e48e82c69aaa185dade5bd",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:40",
+      "jev_support_score": 0.5094124999999999,
+      "jev_support_raw": 0.83,
+      "jev_redundancy": 0.7725,
+      "jev_choice": "supported",
+      "jev_fingerprint": "fea29d2be8397e4bd7c3a751f5fafe2c913499e260fd45354e31cde5f4db0389",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:43",
+      "jev_support_score": 0.258225,
+      "jev_support_raw": 0.33,
+      "jev_redundancy": 0.435,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "44b9d9be3a957d5e587c948a05847ec8793cae72be77217e579fe0a00a77303e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:45",
+      "jev_support_score": 0.007825,
+      "jev_support_raw": 0.01,
+      "jev_redundancy": 0.435,
+      "jev_choice": "conflict",
+      "jev_fingerprint": "037c771d2be7fd998d73bdba6d7c0cfb403e09e59d606a22d1ba18fd5a5382f0",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:53",
+      "jev_support_score": 0.663275,
+      "jev_support_raw": 0.86,
+      "jev_redundancy": 0.4575,
+      "jev_choice": "supported",
+      "jev_fingerprint": "5fe2e4e93efbd6e0a1182ce1e4a06c4de8d4065faa1937de5b1451e44278778b",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:73",
+      "jev_support_score": 0.5411999999999999,
+      "jev_support_raw": 0.82,
+      "jev_redundancy": 0.68,
+      "jev_choice": "supported",
+      "jev_fingerprint": "f84610e20f79859716c512763c32c5553ffea8ff49f5fc67de5f4215ebd21768",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:76",
+      "jev_support_score": 0.69115,
+      "jev_support_raw": 0.92,
+      "jev_redundancy": 0.49750000000000005,
+      "jev_choice": "supported",
+      "jev_fingerprint": "055c3e07c1a6489104680dedebd56704f4aadb7185ac234086137b6a01a4e093",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:79",
+      "jev_support_score": 0.67865,
+      "jev_support_raw": 0.98,
+      "jev_redundancy": 0.615,
+      "jev_choice": "supported",
+      "jev_fingerprint": "6fde18e7aa27c8455904011096a596c023bb77fd793b137f16b69276627529ac",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:86",
+      "jev_support_score": 0.022162499999999998,
+      "jev_support_raw": 0.03,
+      "jev_redundancy": 0.5225,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "5b479417901a83c21dbd7178062c47f8b247dc339896b894571e7fec3da8241e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:94",
+      "jev_support_score": 0.7825,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.435,
+      "jev_choice": "supported",
+      "jev_fingerprint": "b59d2f6e4e373ac3455620d87b6ceebafb61eec7560c4dccb769f0e45d6841a1",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:115",
+      "jev_support_score": 0.7553875,
+      "jev_support_raw": 0.89,
+      "jev_redundancy": 0.3025,
+      "jev_choice": "supported",
+      "jev_fingerprint": "b933b6d5d34ef63a45d0f274a6e9a0b6f13bcdc02203c7d3001b14cfc202a43f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:117",
+      "jev_support_score": 0.7189875,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.5475,
+      "jev_choice": "supported",
+      "jev_fingerprint": "308d1cfd80918d82e5300def689659e2456664e096cbcdb5ec3ac1d30aa10120",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:119",
+      "jev_support_score": 0.7402500000000001,
+      "jev_support_raw": 0.9,
+      "jev_redundancy": 0.355,
+      "jev_choice": "supported",
+      "jev_fingerprint": "54084a211be563323543ccd308a71aacd47fd0fe827c059ebf4051e5fb09f41c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:121",
+      "jev_support_score": 0.4262375,
+      "jev_support_raw": 0.61,
+      "jev_redundancy": 0.6025,
+      "jev_choice": "supported",
+      "jev_fingerprint": "ef963e02bd4d25e989eba502f739aae8c95a4e8fd221528cd68e2c240f4b9de8",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:123",
+      "jev_support_score": 0.0,
+      "jev_support_raw": 0.0,
+      "jev_redundancy": 0.2975,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "f627f9ecc1e4f17b4f9b19f07fd3af4a5d6cafb02ee0d19d37ea559ddca72e4f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:130",
+      "jev_support_score": 0.5723999999999999,
+      "jev_support_raw": 0.72,
+      "jev_redundancy": 0.41000000000000003,
+      "jev_choice": "supported",
+      "jev_fingerprint": "6baadf8c926365aba6723ab7a49076d2a3e713129fea7feade9e2b3d9283b1f2",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:131",
+      "jev_support_score": 0.7621749999999999,
+      "jev_support_raw": 0.86,
+      "jev_redundancy": 0.2275,
+      "jev_choice": "supported",
+      "jev_fingerprint": "d303cc8f89603ca33acc1378615bd8582698e5b74355bde558148248ddb50322",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:135",
+      "jev_support_score": 0.6974,
+      "jev_support_raw": 0.88,
+      "jev_redundancy": 0.41500000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "80daa66bfc7449bcbd6a64708e27680341165695bc26f729f266a53ddd915b3d",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:141",
+      "jev_support_score": 0.262125,
+      "jev_support_raw": 0.45,
+      "jev_redundancy": 0.8350000000000001,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "ea93aa487326e3fcc928178b74dabfd5b2177b7e2e7d6c34a1fdd1e14e26235b",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:149",
+      "jev_support_score": 0.0328,
+      "jev_support_raw": 0.04,
+      "jev_redundancy": 0.36,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "d8d70914f6019ff75a40a6bb534d9d4b0cf8b17386e63165cc5b319d01e79703",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:152",
+      "jev_support_score": 0.6841875000000001,
+      "jev_support_raw": 0.89,
+      "jev_redundancy": 0.4625,
+      "jev_choice": "supported",
+      "jev_fingerprint": "fb107bdf7b3a8665cd4c9fb9b6e01fcf1d33257952c8a591d0c65059118698a0",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:158",
+      "jev_support_score": 0.7190124999999999,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.5175000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "97ea887ab93bb049b91596e1a88168deba011239a86043480b56c01662cff3f7",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:164",
+      "jev_support_score": 0.7516875,
+      "jev_support_raw": 0.95,
+      "jev_redundancy": 0.4175,
+      "jev_choice": "supported",
+      "jev_fingerprint": "febb6c44b622611fc69cfc2e17d3885a157adea07a10209454864004599155a1",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:168",
+      "jev_support_score": 0.6641625,
+      "jev_support_raw": 0.89,
+      "jev_redundancy": 0.5075000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "9dbfdcf03464e77d0c6c8e4d3c1b0309378d3def7be1d538b16e0e15971f28d2",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:173",
+      "jev_support_score": 0.5083625,
+      "jev_support_raw": 0.67,
+      "jev_redundancy": 0.48250000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "92920059b0c7f70761ebaf2c416dd2f0b48c5c758ccea84017f94d7cb21a156a",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:186",
+      "jev_support_score": 0.164725,
+      "jev_support_raw": 0.22,
+      "jev_redundancy": 0.5025,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "8d234e1ac6f771052f864a2e19348ca72c476c7aa5f0a4e4a212555e7216f143",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:192",
+      "jev_support_score": 0.78775,
+      "jev_support_raw": 0.92,
+      "jev_redundancy": 0.28750000000000003,
+      "jev_choice": "supported",
+      "jev_fingerprint": "ac32543f368bf46d495355d1f46d9cd71ea8ec201d39d0292cf17075b5624f8e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:193",
+      "jev_support_score": 0.06230000000000001,
+      "jev_support_raw": 0.07,
+      "jev_redundancy": 0.22000000000000003,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "f55b9af217d0a36981978538977f5032b7bfe4a34c2f1ad0735726d01d68f675",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:198",
+      "jev_support_score": 0.0249375,
+      "jev_support_raw": 0.03,
+      "jev_redundancy": 0.3375,
+      "jev_choice": "conflict",
+      "jev_fingerprint": "7c76c13f5737db5c557aa2fd5b5148262a550bc2ae371624d2032b3dd38ed200",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:199",
+      "jev_support_score": 0.75095,
+      "jev_support_raw": 0.92,
+      "jev_redundancy": 0.3675,
+      "jev_choice": "supported",
+      "jev_fingerprint": "cd069a1b3599506e805cac92d8187d541eda0071a2f8985cc024a28c2fd74a8e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:203",
+      "jev_support_score": 0.0,
+      "jev_support_raw": 0.0,
+      "jev_redundancy": 0.54,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "362a2732f9c00f81130331cfc9e889c10503e29e1d32dadad2f3517bcadc5d88",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:204",
+      "jev_support_score": 0.03105,
+      "jev_support_raw": 0.04,
+      "jev_redundancy": 0.4475,
+      "jev_choice": "conflict",
+      "jev_fingerprint": "dcdeab39a797775c1e284ee96499af57333a6e19133a2aaaedee078ba377979a",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:211",
+      "jev_support_score": 0.8257125000000001,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.2975,
+      "jev_choice": "supported",
+      "jev_fingerprint": "fb3b54e0fb392f360dd2f21c5f5b15db432fff1827ae0d269212d529dc6f5cb6",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:229",
+      "jev_support_score": 0.714225,
+      "jev_support_raw": 0.89,
+      "jev_redundancy": 0.395,
+      "jev_choice": "supported",
+      "jev_fingerprint": "3f8038d15cd600f001b9f954735f213cc5df2ac7c5abcc6151509f81fd01f8dc",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:232",
+      "jev_support_score": 0.62475,
+      "jev_support_raw": 0.84,
+      "jev_redundancy": 0.5125,
+      "jev_choice": "supported",
+      "jev_fingerprint": "20f0a7b2a82f052ad524b54e2d85cbdc15881d84eea5e7d9c194035334ad5ab0",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:234",
+      "jev_support_score": 0.03205,
+      "jev_support_raw": 0.04,
+      "jev_redundancy": 0.39749999999999996,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "fc3de68cb39b0b91db60f05d5f70b7acefe2f55c5fc30eab7a5328140f8efc39",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:254",
+      "jev_support_score": 0.577875,
+      "jev_support_raw": 0.67,
+      "jev_redundancy": 0.27499999999999997,
+      "jev_choice": "supported",
+      "jev_fingerprint": "3a5ad5e7ead306648e5f9645a65f0707735b95ed7e06a9bd91eaab53edf52cec",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:266",
+      "jev_support_score": 0.8825,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.23500000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "25311ea78987c6e124cb4aae955f8062efadf40c13753c575908a3d5c03a8083",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:281",
+      "jev_support_score": 0.7873125,
+      "jev_support_raw": 0.95,
+      "jev_redundancy": 0.34249999999999997,
+      "jev_choice": "supported",
+      "jev_fingerprint": "1d726da2810b96e1f03087f31bad29c87111574f939cb20e9273f5bc4b0dc53d",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:289",
+      "jev_support_score": 0.8229374999999999,
+      "jev_support_raw": 0.95,
+      "jev_redundancy": 0.2675,
+      "jev_choice": "supported",
+      "jev_fingerprint": "985519d09e7ad008415eee96d2359539b6a6f830ed920f20e029d12621cd526a",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:1752",
+      "jev_support_score": 0.076375,
+      "jev_support_raw": 0.1,
+      "jev_redundancy": 0.47250000000000003,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "cb303772433ce7b2064c018a33ea34f8790b4411d114604587a02961dec88e0e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:1762",
+      "jev_support_score": 0.8025,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.395,
+      "jev_choice": "supported",
+      "jev_fingerprint": "b8ec1e82d67ba795e6de13642fc158d224f7e9ecde73758e4ff488983b05fcc2",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "finance_en:q:1765",
+      "jev_support_score": 0.410375,
+      "jev_support_raw": 0.49,
+      "jev_redundancy": 0.325,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "fc186c979041ccd59d7ae79bba5ab3e2bcab4b4e4cdafa16b776ccb2d2273581",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    }
+  ],
+  "sample_hash": "f39bccf9b33d9342063d2d99e3b9b44cc6c5aba2d2101aa1c050f6b0de9ddfc5",
+  "reward_schema": "jev_ao_dual_support_plus_redundancy_qwen37_image_facts_g0.5_scale_agg"
+}

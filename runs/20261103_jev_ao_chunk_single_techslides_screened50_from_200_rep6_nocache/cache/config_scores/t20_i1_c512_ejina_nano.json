@@ -1,0 +1,523 @@
+{
+  "config_id": "t20_i1_c512_ejina_nano",
+  "metric": "mean_jev_support",
+  "mean_jev_support": 0.726309,
+  "mean_jev_support_raw": 0.9082000000000001,
+  "mean_jev_redundancy": 0.39514999999999995,
+  "redundancy_gamma": 0.5,
+  "redundancy_mode": "scale",
+  "mean_text_hit_at_k": 0.0,
+  "mean_image_hit_at_k": 0.0,
+  "query_count": 50,
+  "jev_cache_hits": 0,
+  "jev_new_calls": 50,
+  "jev_choice_counts": {
+    "supported": 47,
+    "insufficient": 2,
+    "conflict": 1
+  },
+  "evaluations": [
+    {
+      "id": "techslides:q:22",
+      "jev_support_score": 0.8075,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.385,
+      "jev_choice": "supported",
+      "jev_fingerprint": "7ee8adfabaaea95e284252ca75af21a009e722c35949496a44604218db0013e6",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:24",
+      "jev_support_score": 0.30779999999999996,
+      "jev_support_raw": 0.36,
+      "jev_redundancy": 0.29000000000000004,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "fa30c059e41b050b4ad6311da1b2e0492257056f7326809d4e28ab877897556f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:27",
+      "jev_support_score": 0.7424999999999999,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.515,
+      "jev_choice": "supported",
+      "jev_fingerprint": "f500b8034618c213d52e2089823318604e209042ec6959478a53fd0b38481e3b",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:98",
+      "jev_support_score": 0.6780625,
+      "jev_support_raw": 0.95,
+      "jev_redundancy": 0.5725,
+      "jev_choice": "supported",
+      "jev_fingerprint": "d287de966fc43c81be45ebf6587a66c8950cbec68629049d298192eeae73a95c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:108",
+      "jev_support_score": 0.715,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.5700000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "90d7b13c2e329988177c254e650790a547318448fca7fbae501b23bb02eba24f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:110",
+      "jev_support_score": 0.86625,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.2675,
+      "jev_choice": "supported",
+      "jev_fingerprint": "48500df39e8b4bc830bc6d928fa2c15bed230e77dfebc54f91577fdf2f5da220",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:114",
+      "jev_support_score": 0.8725,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.255,
+      "jev_choice": "supported",
+      "jev_fingerprint": "3e0d3bbb78a038997d993a1ae16620d4ec0d28115d50b4806d043f42fd853f52",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:120",
+      "jev_support_score": 0.71625,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.5675,
+      "jev_choice": "supported",
+      "jev_fingerprint": "decd662ba711f85e5cba75367b68256ffccaf4cc7b98684555a7853cf38d1802",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:121",
+      "jev_support_score": 0.8725,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.255,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2aa323ace129cd36cb3ce509430fc2addb5e9a91cdb0a5063c78ab1ced30ab07",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:122",
+      "jev_support_score": 0.7341875,
+      "jev_support_raw": 0.85,
+      "jev_redundancy": 0.27249999999999996,
+      "jev_choice": "supported",
+      "jev_fingerprint": "312642b9631f847e90148e13915358f536b6b92605124f59a45229566a3fb6ee",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:131",
+      "jev_support_score": 0.45565,
+      "jev_support_raw": 0.52,
+      "jev_redundancy": 0.2475,
+      "jev_choice": "supported",
+      "jev_fingerprint": "9e07946b0bcfc59d782bf720910784354c95bdccedd043ce92492892608210e3",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:291",
+      "jev_support_score": 0.88125,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.2375,
+      "jev_choice": "supported",
+      "jev_fingerprint": "0b5f9691cabc494b783e41ef0cb0860dfe093c26c3c69706ffaeccdd737d3d78",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:299",
+      "jev_support_score": 0.7602374999999999,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.4325,
+      "jev_choice": "supported",
+      "jev_fingerprint": "bc165e12e24662ea0b4652dfc2b93a29d0633d6846543d107964f1aa16a0d2e4",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:303",
+      "jev_support_score": 0.8512500000000001,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.2975,
+      "jev_choice": "supported",
+      "jev_fingerprint": "f4e7a173b7dd731656d1bcb94f1c8ca82db42552423bfe26af48d19e8298c4af",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:306",
+      "jev_support_score": 0.6725,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.655,
+      "jev_choice": "supported",
+      "jev_fingerprint": "835e117eaf9cddd7841cdff1730b2994accac1d8d3f0feaf828993c761df5b7d",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:307",
+      "jev_support_score": 0.5666625,
+      "jev_support_raw": 0.69,
+      "jev_redundancy": 0.35750000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "0cf6213fc04b4417c7e34dd276ea64ce580b277b4cac40125bc4a5e0e237247c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:309",
+      "jev_support_score": 0.624,
+      "jev_support_raw": 0.96,
+      "jev_redundancy": 0.7,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a1c396e8d9b8420de2e1b73f6abd11bac14546bc896db70639cecd8f7b6af17b",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:310",
+      "jev_support_score": 0.05398750000000001,
+      "jev_support_raw": 0.07,
+      "jev_redundancy": 0.4575,
+      "jev_choice": "conflict",
+      "jev_fingerprint": "62f984aaba88385fc24cb671c2f90eab344f87cdbb5c0d0fa38f1a51889cb2e5",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:311",
+      "jev_support_score": 0.5674499999999999,
+      "jev_support_raw": 0.97,
+      "jev_redundancy": 0.83,
+      "jev_choice": "supported",
+      "jev_fingerprint": "4884595551d421417d198b78ef68435f25f93c3c05e2bbf88075dff0177e90cb",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:312",
+      "jev_support_score": 0.5115000000000001,
+      "jev_support_raw": 0.93,
+      "jev_redundancy": 0.8999999999999999,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2aea95dfd8605b3d9d8dd444ec17e9a6fefbff04430ce9fa7a7d7529bac4cbc3",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:313",
+      "jev_support_score": 0.64,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.72,
+      "jev_choice": "supported",
+      "jev_fingerprint": "052308aece6dee6100d968e4232e838d5fd498ad41b8af9cd1a6d5a9d2445660",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:369",
+      "jev_support_score": 0.6515625,
+      "jev_support_raw": 0.75,
+      "jev_redundancy": 0.2625,
+      "jev_choice": "supported",
+      "jev_fingerprint": "5d83e94047cf48439a638b2194a8807954a7dc3ca3ad5076e878072caf820e3e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:383",
+      "jev_support_score": 0.8525,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.29500000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "abbca1baeaee51464cae06c5ddba9b3892ac5102c3c7fa44a13ef46ab630af53",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:385",
+      "jev_support_score": 0.1715,
+      "jev_support_raw": 0.2,
+      "jev_redundancy": 0.285,
+      "jev_choice": "insufficient",
+      "jev_fingerprint": "40cbe79f6ba3589bcf4d4f09e6ab37b4843b44d7cbea083e3869b0010116c663",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:393",
+      "jev_support_score": 0.8402625,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.3025,
+      "jev_choice": "supported",
+      "jev_fingerprint": "36d8f623e516f7c90189a136cf16f66e617a518fbce7612ceda984e9a8718600",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:396",
+      "jev_support_score": 0.87625,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.2475,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2c7b35551ae7763d9a9a0b25445405a0124ba4cf0299c824cee88cb3c15cbd66",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:403",
+      "jev_support_score": 0.8475,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.305,
+      "jev_choice": "supported",
+      "jev_fingerprint": "96ba46884d64e1d2f9968ebfaa1e957bfd0baf6c8cc83e54d5bfcc86bbf36534",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:407",
+      "jev_support_score": 0.8600625000000001,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.2625,
+      "jev_choice": "supported",
+      "jev_fingerprint": "406ebb31b24591e616f57f052c566a0fa19bd6445ec5074609eba2402ed9af66",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:413",
+      "jev_support_score": 0.7771499999999999,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.43000000000000005,
+      "jev_choice": "supported",
+      "jev_fingerprint": "4053c8d201bfc14be2668d7ae44705fbc47af0851368f66b413fa05404c9f69f",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:417",
+      "jev_support_score": 0.86625,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.25,
+      "jev_choice": "supported",
+      "jev_fingerprint": "7315a9eac5ca486f8c38cd3ffc938b0943e0947d783bf36399949fe72d20dfe5",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:418",
+      "jev_support_score": 0.75875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.48250000000000004,
+      "jev_choice": "supported",
+      "jev_fingerprint": "e9e7b87fc968690d1a9c644f1613acdddf40330d13dda20c20471d9c102cb11c",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:419",
+      "jev_support_score": 0.8427375,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.2975,
+      "jev_choice": "supported",
+      "jev_fingerprint": "938ba9769ceab27041302647309fb20d01476689034ad893d300310baa513529",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:433",
+      "jev_support_score": 0.8,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.4,
+      "jev_choice": "supported",
+      "jev_fingerprint": "747788866aa1ad63874b8bdc37390b23d5023ea353267223e92b782c16eb65d7",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:435",
+      "jev_support_score": 0.855,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.29,
+      "jev_choice": "supported",
+      "jev_fingerprint": "40382da17a08502567860d9e66ac60db9b85863fc6477f7ad0b6fe5c20360d09",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:437",
+      "jev_support_score": 0.5525,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.895,
+      "jev_choice": "supported",
+      "jev_fingerprint": "e93094fef381e41e71b7632514eaaeb14799ae913f908d4ab7718c17a412f93e",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:439",
+      "jev_support_score": 0.5597624999999999,
+      "jev_support_raw": 0.69,
+      "jev_redundancy": 0.3775,
+      "jev_choice": "supported",
+      "jev_fingerprint": "c3cc811767e83e855047d759e693c3db84cf65d3415c570f17fada161a22bab8",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:440",
+      "jev_support_score": 0.74875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.5025000000000001,
+      "jev_choice": "supported",
+      "jev_fingerprint": "c179d3ab4bc4981648431645cdbea16c866abc2a08b536520dee86ee96573514",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:443",
+      "jev_support_score": 0.7737499999999999,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.4525,
+      "jev_choice": "supported",
+      "jev_fingerprint": "b3c4d6aa41f882562374b61ba7a268eab039bb8952c83dc74f1f6c224eb6ffad",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:449",
+      "jev_support_score": 0.84125,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.3175,
+      "jev_choice": "supported",
+      "jev_fingerprint": "cc95cd69f97a6f244a868a343da3c378cdb853bebcaf2d142d2028154d0b0676",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:450",
+      "jev_support_score": 0.8875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.225,
+      "jev_choice": "supported",
+      "jev_fingerprint": "21853206f3c0d630f59fa1c024fc93d58108de7e2b81b71bcfa824e558fd639b",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:451",
+      "jev_support_score": 0.6599999999999999,
+      "jev_support_raw": 0.96,
+      "jev_redundancy": 0.625,
+      "jev_choice": "supported",
+      "jev_fingerprint": "20cbfefedf1ffefca4463fdfde63c79d560a84a8294d2bebb993b83fa7036a82",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:452",
+      "jev_support_score": 0.82875,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.3425,
+      "jev_choice": "supported",
+      "jev_fingerprint": "508930e134976fe39189088a08dc475a2fbe1393205f72f9bd468297c2cefa31",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:454",
+      "jev_support_score": 0.6290000000000001,
+      "jev_support_raw": 0.68,
+      "jev_redundancy": 0.15,
+      "jev_choice": "supported",
+      "jev_fingerprint": "2a4ac5e3a365041831c71a85735d6f56cd70a87c8ddd4663c8a827772b0dd5a3",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:457",
+      "jev_support_score": 0.7656,
+      "jev_support_raw": 0.96,
+      "jev_redundancy": 0.405,
+      "jev_choice": "supported",
+      "jev_fingerprint": "7a3996a8634873b987131f4c05d28d1f1177cbeee3c7f10bb630ec28cc361970",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:458",
+      "jev_support_score": 0.836675,
+      "jev_support_raw": 0.98,
+      "jev_redundancy": 0.2925,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a93a8acb8ff9cf8438d3a12e96694cfb903cd927d1f8084c9e6dc46ca14a7f21",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:465",
+      "jev_support_score": 0.82565,
+      "jev_support_raw": 0.98,
+      "jev_redundancy": 0.315,
+      "jev_choice": "supported",
+      "jev_fingerprint": "03660ea3b5fb8ae2fd6d37c3358a7219c5b68bd8bfe2e31f728e6d38ed60ea41",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:466",
+      "jev_support_score": 0.8475,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.305,
+      "jev_choice": "supported",
+      "jev_fingerprint": "ea8b1d98a9cd7b984a66176f6e27c41395bd2353bdfe92024399bb50cb54aa39",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:514",
+      "jev_support_score": 0.89595,
+      "jev_support_raw": 0.99,
+      "jev_redundancy": 0.19,
+      "jev_choice": "supported",
+      "jev_fingerprint": "a57902c9c7f33eeaf4f65dc927e3dea8a482249172f8f47dc9fd2a7218058a72",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:517",
+      "jev_support_score": 0.89375,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.21250000000000002,
+      "jev_choice": "supported",
+      "jev_fingerprint": "986e3295c7573e271400224e398dd03f86418e44059f3025b74377ada067aae9",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    },
+    {
+      "id": "techslides:q:519",
+      "jev_support_score": 0.8725,
+      "jev_support_raw": 1.0,
+      "jev_redundancy": 0.255,
+      "jev_choice": "supported",
+      "jev_fingerprint": "43afd40707c00d2095c67a0374fd304b84fd96c1038fa7676cddc8792175a758",
+      "text_hit_at_k": 0,
+      "image_hit_at_k": 0
+    }
+  ],
+  "sample_hash": "f3d3bcd27bd45ef2ffdb4e205a47d32b84067da859c6b0665f651bfb57e59f35",
+  "reward_schema": "jev_ao_dual_support_plus_redundancy_qwen37_image_facts_g0.5_scale_agg"
+}

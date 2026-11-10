@@ -1,0 +1,16 @@
+# 运行时依赖（Python >= 3.10）
+numpy>=1.24
+requests>=2.31
+elasticsearch>=8
+Pillow>=10
+
+# 本地编码器（qwen3_vl_2b / jina_* 后端）需要 GPU 侧的这三项；
+# 只跑离线分析（analysis/）时可以不装。
+torch>=2
+transformers>=4.40
+sentence-transformers>=3
+
+# 云端图像编码后端（dashscope qwen3-vl-embedding）
+dashscope>=1.20
+# 本地 Qwen3-VL 编码器的图像预处理工具
+qwen-vl-utils>=0.0.8

@@ -1,0 +1,234 @@
+{
+  "base_seed": 67,
+  "repeats": 20,
+  "policies": [
+    "jit",
+    "jit_no_rules",
+    "random",
+    "llm",
+    "coordinate_descent",
+    "tpe"
+  ],
+  "budget_per_policy": 30,
+  "controller_steps_per_repeat": 25,
+  "configs_per_round": 1,
+  "rounds": 26,
+  "step_mapping": "round 1 = 初始批次前置阶段（5 个配置，非控制器决策）；round 2..26 = 控制器第 1..25 步，每步 1 个；控制器步 k ↔ evaluation_position k+5 ↔ round k+1",
+  "search_space": {
+    "space_version": "memory_v2_absolute_scope_rrf_embedding_chunk_v1",
+    "param_names": [
+      "text_top_k",
+      "image_top_k",
+      "chunk_size",
+      "embedding_backend"
+    ],
+    "domains": {
+      "text_top_k": [
+        5,
+        10,
+        20,
+        40
+      ],
+      "image_top_k": [
+        0,
+        1,
+        3,
+        5,
+        10,
+        20
+      ],
+      "chunk_size": [
+        64,
+        128,
+        256,
+        512
+      ],
+      "embedding_backend": [
+        "jina_nano",
+        "jina_small",
+        "qwen3_vl_2b"
+      ]
+    },
+    "ordinal_denominators": [
+      3,
+      5,
+      3
+    ],
+    "distance_weight": 0.25,
+    "fixed_params": {
+      "text_weight": 1.2,
+      "rrf_k": 60
+    },
+    "candidate_count": 288,
+    "config_id_shape": "t{text_top_k}_i{image_top_k}_c{chunk_size}_e{backend}",
+    "decision_granularity": 1,
+    "jit_selection": "utility_top1_no_slots",
+    "llm_batch_size": 1,
+    "decision_thinking": false
+  },
+  "initial_batch_seeds": [
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    75,
+    76,
+    80,
+    0,
+    1,
+    2,
+    42,
+    777,
+    2024,
+    123,
+    13,
+    99,
+    100,
+    314
+  ],
+  "repeats_distinct": true,
+  "initial_batch_config_ids": {
+    "rep_01": [
+      "t10_i20_c128_eqwen3_vl_2b",
+      "t40_i0_c512_ejina_small",
+      "t5_i0_c64_ejina_nano",
+      "t40_i10_c256_ejina_nano",
+      "t5_i20_c512_ejina_small"
+    ],
+    "rep_02": [
+      "t5_i10_c64_ejina_small",
+      "t40_i0_c512_eqwen3_vl_2b",
+      "t40_i20_c128_ejina_nano",
+      "t5_i0_c256_ejina_nano",
+      "t5_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_03": [
+      "t10_i10_c512_ejina_small",
+      "t40_i0_c64_eqwen3_vl_2b",
+      "t5_i5_c64_ejina_nano",
+      "t40_i1_c512_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b"
+    ],
+    "rep_04": [
+      "t10_i5_c128_ejina_nano",
+      "t40_i0_c512_eqwen3_vl_2b",
+      "t5_i20_c512_ejina_small",
+      "t20_i0_c64_ejina_small",
+      "t5_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_05": [
+      "t40_i10_c64_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t5_i20_c128_ejina_small",
+      "t40_i0_c256_ejina_small",
+      "t40_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_06": [
+      "t10_i20_c128_ejina_small",
+      "t40_i0_c512_eqwen3_vl_2b",
+      "t5_i0_c64_ejina_nano",
+      "t40_i10_c256_ejina_nano",
+      "t5_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_07": [
+      "t5_i10_c128_eqwen3_vl_2b",
+      "t40_i0_c512_ejina_small",
+      "t40_i5_c64_ejina_nano",
+      "t5_i1_c512_ejina_nano",
+      "t5_i0_c64_ejina_small"
+    ],
+    "rep_08": [
+      "t40_i20_c64_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t5_i10_c128_ejina_small",
+      "t40_i1_c512_ejina_small",
+      "t5_i0_c64_ejina_nano"
+    ],
+    "rep_09": [
+      "t20_i5_c512_ejina_small",
+      "t5_i0_c64_eqwen3_vl_2b",
+      "t40_i20_c64_ejina_nano",
+      "t5_i3_c256_ejina_nano",
+      "t5_i20_c64_ejina_small"
+    ],
+    "rep_10": [
+      "t40_i3_c256_eqwen3_vl_2b",
+      "t5_i20_c64_ejina_small",
+      "t5_i0_c512_ejina_nano",
+      "t40_i10_c64_ejina_nano",
+      "t5_i0_c64_eqwen3_vl_2b"
+    ],
+    "rep_11": [
+      "t10_i5_c512_eqwen3_vl_2b",
+      "t40_i0_c64_ejina_small",
+      "t5_i20_c64_ejina_nano",
+      "t40_i3_c256_ejina_nano",
+      "t40_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_12": [
+      "t10_i1_c256_ejina_small",
+      "t40_i20_c64_eqwen3_vl_2b",
+      "t5_i20_c512_ejina_nano",
+      "t40_i0_c128_ejina_nano",
+      "t5_i0_c64_eqwen3_vl_2b"
+    ],
+    "rep_13": [
+      "t10_i3_c64_ejina_nano",
+      "t40_i20_c512_eqwen3_vl_2b",
+      "t5_i0_c512_ejina_small",
+      "t40_i5_c128_ejina_small",
+      "t40_i0_c512_ejina_nano"
+    ],
+    "rep_14": [
+      "t20_i20_c64_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t40_i0_c128_ejina_small",
+      "t5_i20_c256_ejina_small",
+      "t40_i10_c256_eqwen3_vl_2b"
+    ],
+    "rep_15": [
+      "t5_i1_c128_ejina_nano",
+      "t40_i20_c512_eqwen3_vl_2b",
+      "t40_i3_c64_ejina_small",
+      "t5_i10_c512_ejina_small",
+      "t5_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_16": [
+      "t10_i1_c128_eqwen3_vl_2b",
+      "t40_i20_c512_ejina_small",
+      "t5_i20_c64_ejina_nano",
+      "t40_i0_c256_ejina_nano",
+      "t5_i0_c512_ejina_small"
+    ],
+    "rep_17": [
+      "t20_i5_c128_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t5_i20_c64_ejina_small",
+      "t40_i0_c256_ejina_small",
+      "t40_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_18": [
+      "t40_i5_c128_eqwen3_vl_2b",
+      "t5_i0_c512_ejina_small",
+      "t5_i20_c64_ejina_nano",
+      "t40_i1_c512_ejina_nano",
+      "t5_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_19": [
+      "t20_i0_c128_eqwen3_vl_2b",
+      "t5_i20_c512_ejina_small",
+      "t40_i20_c64_ejina_nano",
+      "t5_i1_c256_ejina_nano",
+      "t40_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_20": [
+      "t20_i1_c256_ejina_small",
+      "t5_i20_c64_eqwen3_vl_2b",
+      "t40_i20_c512_ejina_nano",
+      "t5_i0_c128_ejina_nano",
+      "t40_i0_c64_eqwen3_vl_2b"
+    ]
+  }
+}

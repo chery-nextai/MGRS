@@ -1,0 +1,29 @@
+{
+  "round": 1,
+  "config_ids": [
+    "t5_i1_c128_ejina_nano",
+    "t40_i20_c512_eqwen3_vl_2b",
+    "t40_i3_c64_ejina_small",
+    "t5_i10_c512_ejina_small",
+    "t5_i20_c64_eqwen3_vl_2b"
+  ],
+  "diagnostics": {
+    "t5_i1_c128_ejina_nano": {
+      "selection": "shared_seeded_maximin"
+    },
+    "t40_i20_c512_eqwen3_vl_2b": {
+      "selection": "shared_seeded_maximin"
+    },
+    "t40_i3_c64_ejina_small": {
+      "selection": "shared_seeded_maximin"
+    },
+    "t5_i10_c512_ejina_small": {
+      "selection": "shared_seeded_maximin"
+    },
+    "t5_i20_c64_eqwen3_vl_2b": {
+      "selection": "shared_seeded_maximin"
+    }
+  },
+  "decision_seconds": 0.0,
+  "note": "初始批次前置阶段（入口预写，非控制器决策）"
+}

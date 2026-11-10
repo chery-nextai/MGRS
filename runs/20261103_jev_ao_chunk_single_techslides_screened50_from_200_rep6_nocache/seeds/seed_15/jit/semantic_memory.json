@@ -1,0 +1,210 @@
+[
+  {
+    "rule_id": "text_top_k=10",
+    "scope": {
+      "text_top_k": [
+        10,
+        10
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": -0.04288170833333338,
+    "support": 4,
+    "refute": 2,
+    "confidence": 0.6153846153846154,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "text_top_k=20",
+    "scope": {
+      "text_top_k": [
+        20,
+        20
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": -0.023481708333333406,
+    "support": 3,
+    "refute": 2,
+    "confidence": 0.5454545454545454,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "text_top_k=40",
+    "scope": {
+      "text_top_k": [
+        40,
+        40
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.015208503205128232,
+    "support": 13,
+    "refute": 2,
+    "confidence": 0.8387096774193549,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "text_top_k=5",
+    "scope": {
+      "text_top_k": [
+        5,
+        5
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.004426141666666661,
+    "support": 10,
+    "refute": 3,
+    "confidence": 0.7407407407407407,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "image_top_k=10",
+    "scope": {
+      "image_top_k": [
+        10,
+        10
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.013902841666666665,
+    "support": 5,
+    "refute": 1,
+    "confidence": 0.7692307692307693,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "image_top_k=20",
+    "scope": {
+      "image_top_k": [
+        20,
+        20
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.017724526960784304,
+    "support": 17,
+    "refute": 3,
+    "confidence": 0.8292682926829268,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "chunk_size=128",
+    "scope": {
+      "chunk_size": [
+        128,
+        128
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": -0.02883904166666662,
+    "support": 3,
+    "refute": 2,
+    "confidence": 0.5454545454545454,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "chunk_size=256",
+    "scope": {
+      "chunk_size": [
+        256,
+        256
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.009894010416666599,
+    "support": 8,
+    "refute": 1,
+    "confidence": 0.8421052631578947,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "chunk_size=512",
+    "scope": {
+      "chunk_size": [
+        512,
+        512
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.002774773809523623,
+    "support": 14,
+    "refute": 2,
+    "confidence": 0.8484848484848485,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "chunk_size=64",
+    "scope": {
+      "chunk_size": [
+        64,
+        64
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": -0.006296358333333418,
+    "support": 5,
+    "refute": 1,
+    "confidence": 0.7692307692307693,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "embedding_backend=jina_nano",
+    "scope": {
+      "embedding_backend": [
+        "jina_nano",
+        "jina_nano"
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": -0.044828791666666534,
+    "support": 3,
+    "refute": 1,
+    "confidence": 0.6666666666666666,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "embedding_backend=jina_small",
+    "scope": {
+      "embedding_backend": [
+        "jina_small",
+        "jina_small"
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": -0.023058333333333292,
+    "support": 6,
+    "refute": 4,
+    "confidence": 0.5714285714285714,
+    "last_updated_round": 26
+  },
+  {
+    "rule_id": "embedding_backend=qwen3_vl_2b",
+    "scope": {
+      "embedding_backend": [
+        "qwen3_vl_2b",
+        "qwen3_vl_2b"
+      ]
+    },
+    "scope_dim_count": 1,
+    "baseline_mean": 0.7201874583333333,
+    "effect_size": 0.012992208333333255,
+    "support": 21,
+    "refute": 4,
+    "confidence": 0.8235294117647058,
+    "last_updated_round": 26
+  }
+]

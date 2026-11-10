@@ -1,0 +1,6123 @@
+{
+  "run_id": "20261103_jev_ao_chunk_single_finance_en_q50_rep6_nocache",
+  "dataset": "finance_en",
+  "dataset_dir": "<ao_data_root>/datasets/ao_ready_v1/finance_en/data",
+  "index_prefix": "mgrs_ao_finance_en_b36d2b08b6fc_handoff_v1",
+  "query_count": 50,
+  "base_seed": 67,
+  "repeats": 20,
+  "policies": [
+    "jit",
+    "jit_no_rules",
+    "random",
+    "llm",
+    "coordinate_descent",
+    "tpe"
+  ],
+  "search_space": {
+    "space_version": "memory_v2_absolute_scope_rrf_embedding_chunk_v1",
+    "param_names": [
+      "text_top_k",
+      "image_top_k",
+      "chunk_size",
+      "embedding_backend"
+    ],
+    "domains": {
+      "text_top_k": [
+        5,
+        10,
+        20,
+        40
+      ],
+      "image_top_k": [
+        0,
+        1,
+        3,
+        5,
+        10,
+        20
+      ],
+      "chunk_size": [
+        64,
+        128,
+        256,
+        512
+      ],
+      "embedding_backend": [
+        "jina_nano",
+        "jina_small",
+        "qwen3_vl_2b"
+      ]
+    },
+    "ordinal_denominators": [
+      3,
+      5,
+      3
+    ],
+    "distance_weight": 0.25,
+    "fixed_params": {
+      "text_weight": 1.2,
+      "rrf_k": 60
+    },
+    "candidate_count": 288,
+    "config_id_shape": "t{text_top_k}_i{image_top_k}_c{chunk_size}_e{backend}",
+    "decision_granularity": 1,
+    "jit_selection": "utility_top1_no_slots",
+    "llm_batch_size": 1,
+    "decision_thinking": false
+  },
+  "chunk_values": [
+    64,
+    128,
+    256,
+    512
+  ],
+  "decision_granularity": 1,
+  "initial_batch_size": 5,
+  "controller_steps_per_repeat": 25,
+  "budget_per_policy": 30,
+  "step_mapping": "round 1 = 初始批次前置阶段（5 个配置，非控制器决策）；round 2..26 = 控制器第 1..25 步，每步 1 个；控制器步 k ↔ evaluation_position k+5 ↔ round k+1",
+  "cache_reused_from": null,
+  "cache_reuse": {
+    "source": null,
+    "reused": false,
+    "reason": "cache_from 为空：冷启动，全部重新计算",
+    "vision_added": 0,
+    "scores_reused": 0,
+    "scores_present": 0,
+    "scores_incompatible": 0,
+    "retrieval_reused": false,
+    "embeddings_reused": [],
+    "jev_responses_reused": false,
+    "vision_from": "<prior_run>",
+    "vision_added_from": 0
+  },
+  "reward_key": "mean_jev_support",
+  "reward_schema": "jev_ao_dual_support_plus_redundancy_qwen37_image_facts_g0.5_scale_agg",
+  "reward_fingerprint_schema": "jev_ao_dual_support_plus_redundancy_qwen37_image_facts",
+  "redundancy_gamma": 0.5,
+  "redundancy_mode": "scale",
+  "initial_batch_seeds": [
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    75,
+    76,
+    80,
+    0,
+    1,
+    2,
+    42,
+    777,
+    2024,
+    123,
+    13,
+    99,
+    100,
+    314
+  ],
+  "initial_batch_config_ids": {
+    "rep_01": [
+      "t10_i20_c128_eqwen3_vl_2b",
+      "t40_i0_c512_ejina_small",
+      "t5_i0_c64_ejina_nano",
+      "t40_i10_c256_ejina_nano",
+      "t5_i20_c512_ejina_small"
+    ],
+    "rep_02": [
+      "t5_i10_c64_ejina_small",
+      "t40_i0_c512_eqwen3_vl_2b",
+      "t40_i20_c128_ejina_nano",
+      "t5_i0_c256_ejina_nano",
+      "t5_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_03": [
+      "t10_i10_c512_ejina_small",
+      "t40_i0_c64_eqwen3_vl_2b",
+      "t5_i5_c64_ejina_nano",
+      "t40_i1_c512_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b"
+    ],
+    "rep_04": [
+      "t10_i5_c128_ejina_nano",
+      "t40_i0_c512_eqwen3_vl_2b",
+      "t5_i20_c512_ejina_small",
+      "t20_i0_c64_ejina_small",
+      "t5_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_05": [
+      "t40_i10_c64_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t5_i20_c128_ejina_small",
+      "t40_i0_c256_ejina_small",
+      "t40_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_06": [
+      "t10_i20_c128_ejina_small",
+      "t40_i0_c512_eqwen3_vl_2b",
+      "t5_i0_c64_ejina_nano",
+      "t40_i10_c256_ejina_nano",
+      "t5_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_07": [
+      "t5_i10_c128_eqwen3_vl_2b",
+      "t40_i0_c512_ejina_small",
+      "t40_i5_c64_ejina_nano",
+      "t5_i1_c512_ejina_nano",
+      "t5_i0_c64_ejina_small"
+    ],
+    "rep_08": [
+      "t40_i20_c64_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t5_i10_c128_ejina_small",
+      "t40_i1_c512_ejina_small",
+      "t5_i0_c64_ejina_nano"
+    ],
+    "rep_09": [
+      "t20_i5_c512_ejina_small",
+      "t5_i0_c64_eqwen3_vl_2b",
+      "t40_i20_c64_ejina_nano",
+      "t5_i3_c256_ejina_nano",
+      "t5_i20_c64_ejina_small"
+    ],
+    "rep_10": [
+      "t40_i3_c256_eqwen3_vl_2b",
+      "t5_i20_c64_ejina_small",
+      "t5_i0_c512_ejina_nano",
+      "t40_i10_c64_ejina_nano",
+      "t5_i0_c64_eqwen3_vl_2b"
+    ],
+    "rep_11": [
+      "t10_i5_c512_eqwen3_vl_2b",
+      "t40_i0_c64_ejina_small",
+      "t5_i20_c64_ejina_nano",
+      "t40_i3_c256_ejina_nano",
+      "t40_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_12": [
+      "t10_i1_c256_ejina_small",
+      "t40_i20_c64_eqwen3_vl_2b",
+      "t5_i20_c512_ejina_nano",
+      "t40_i0_c128_ejina_nano",
+      "t5_i0_c64_eqwen3_vl_2b"
+    ],
+    "rep_13": [
+      "t10_i3_c64_ejina_nano",
+      "t40_i20_c512_eqwen3_vl_2b",
+      "t5_i0_c512_ejina_small",
+      "t40_i5_c128_ejina_small",
+      "t40_i0_c512_ejina_nano"
+    ],
+    "rep_14": [
+      "t20_i20_c64_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t40_i0_c128_ejina_small",
+      "t5_i20_c256_ejina_small",
+      "t40_i10_c256_eqwen3_vl_2b"
+    ],
+    "rep_15": [
+      "t5_i1_c128_ejina_nano",
+      "t40_i20_c512_eqwen3_vl_2b",
+      "t40_i3_c64_ejina_small",
+      "t5_i10_c512_ejina_small",
+      "t5_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_16": [
+      "t10_i1_c128_eqwen3_vl_2b",
+      "t40_i20_c512_ejina_small",
+      "t5_i20_c64_ejina_nano",
+      "t40_i0_c256_ejina_nano",
+      "t5_i0_c512_ejina_small"
+    ],
+    "rep_17": [
+      "t20_i5_c128_ejina_nano",
+      "t5_i0_c512_eqwen3_vl_2b",
+      "t5_i20_c64_ejina_small",
+      "t40_i0_c256_ejina_small",
+      "t40_i20_c64_eqwen3_vl_2b"
+    ],
+    "rep_18": [
+      "t40_i5_c128_eqwen3_vl_2b",
+      "t5_i0_c512_ejina_small",
+      "t5_i20_c64_ejina_nano",
+      "t40_i1_c512_ejina_nano",
+      "t5_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_19": [
+      "t20_i0_c128_eqwen3_vl_2b",
+      "t5_i20_c512_ejina_small",
+      "t40_i20_c64_ejina_nano",
+      "t5_i1_c256_ejina_nano",
+      "t40_i20_c512_eqwen3_vl_2b"
+    ],
+    "rep_20": [
+      "t20_i1_c256_ejina_small",
+      "t5_i20_c64_eqwen3_vl_2b",
+      "t40_i20_c512_ejina_nano",
+      "t5_i0_c128_ejina_nano",
+      "t40_i0_c64_eqwen3_vl_2b"
+    ]
+  },
+  "aggregate": {
+    "jit": {
+      "mean_best": 0.731618775,
+      "std_best": 0.0077846210199582315,
+      "min_best": 0.7097140000000001,
+      "max_best": 0.7358720000000001,
+      "mean_best_step": 13.75,
+      "best_per_repeat": [
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7115825,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7272177499999999,
+        0.7272177499999999,
+        0.7272177499999999,
+        0.7097140000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7272177499999999,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001
+      ],
+      "best_step_per_repeat": [
+        11,
+        5,
+        15,
+        6,
+        24,
+        5,
+        15,
+        16,
+        30,
+        13,
+        7,
+        13,
+        10,
+        23,
+        6,
+        27,
+        29,
+        5,
+        9,
+        6
+      ],
+      "mean_best_controller_step": 8.75,
+      "mean_final_best_controller_step": 10.294117647058824,
+      "final_best_in_controller_steps": 17,
+      "mean_first_band_controller_step": 8.142857142857142,
+      "first_band_in_controller_steps": 14,
+      "band_epsilon": 0.01,
+      "mean_initial_batch_best": 0.6932380874999999,
+      "mean_controller_best": 0.7304815125
+    },
+    "jit_no_rules": {
+      "mean_best": 0.7358720000000002,
+      "std_best": 1.1102230246251565e-16,
+      "min_best": 0.7358720000000001,
+      "max_best": 0.7358720000000001,
+      "mean_best_step": 13.65,
+      "best_per_repeat": [
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001
+      ],
+      "best_step_per_repeat": [
+        24,
+        5,
+        20,
+        6,
+        16,
+        5,
+        11,
+        17,
+        30,
+        11,
+        7,
+        26,
+        12,
+        16,
+        11,
+        13,
+        22,
+        5,
+        10,
+        6
+      ],
+      "mean_best_controller_step": 8.65,
+      "mean_final_best_controller_step": 10.176470588235293,
+      "final_best_in_controller_steps": 17,
+      "mean_first_band_controller_step": 6.428571428571429,
+      "first_band_in_controller_steps": 14,
+      "band_epsilon": 0.01,
+      "mean_initial_batch_best": 0.6932380874999999,
+      "mean_controller_best": 0.7350564875000001
+    },
+    "random": {
+      "mean_best": 0.72033095,
+      "std_best": 0.013470829009056952,
+      "min_best": 0.688092,
+      "max_best": 0.7358720000000001,
+      "mean_best_step": 12.65,
+      "best_per_repeat": [
+        0.7115825,
+        0.7358720000000001,
+        0.688092,
+        0.73043525,
+        0.7206410000000001,
+        0.7358720000000001,
+        0.7017610000000001,
+        0.7206410000000001,
+        0.72874,
+        0.7244897499999999,
+        0.6947002499999999,
+        0.7206410000000001,
+        0.73043525,
+        0.7152379999999999,
+        0.73043525,
+        0.725257,
+        0.7048375,
+        0.7358720000000001,
+        0.7206410000000001,
+        0.73043525
+      ],
+      "best_step_per_repeat": [
+        1,
+        5,
+        22,
+        5,
+        18,
+        5,
+        7,
+        17,
+        12,
+        19,
+        5,
+        19,
+        28,
+        8,
+        5,
+        18,
+        25,
+        5,
+        27,
+        2
+      ],
+      "mean_best_controller_step": 7.65,
+      "mean_final_best_controller_step": 13.333333333333334,
+      "final_best_in_controller_steps": 12,
+      "mean_first_band_controller_step": 12.583333333333334,
+      "first_band_in_controller_steps": 12,
+      "band_epsilon": 0.01,
+      "mean_initial_batch_best": 0.6932380874999999,
+      "mean_controller_best": 0.7138914875000001
+    },
+    "llm": {
+      "mean_best": 0.7242637000000001,
+      "std_best": 0.01126059454763606,
+      "min_best": 0.6947002499999999,
+      "max_best": 0.7358720000000001,
+      "mean_best_step": 13.25,
+      "best_per_repeat": [
+        0.7272177499999999,
+        0.7358720000000001,
+        0.7152379999999999,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7152379999999999,
+        0.7152379999999999,
+        0.7244897499999999,
+        0.6947002499999999,
+        0.7206410000000001,
+        0.73043525,
+        0.7152379999999999,
+        0.73043525,
+        0.725257,
+        0.7048375,
+        0.7358720000000001,
+        0.7206410000000001,
+        0.73043525
+      ],
+      "best_step_per_repeat": [
+        9,
+        5,
+        21,
+        12,
+        13,
+        5,
+        11,
+        14,
+        14,
+        19,
+        5,
+        19,
+        28,
+        8,
+        5,
+        18,
+        25,
+        5,
+        27,
+        2
+      ],
+      "mean_best_controller_step": 8.25,
+      "mean_final_best_controller_step": 12.0,
+      "final_best_in_controller_steps": 14,
+      "mean_first_band_controller_step": 10.692307692307692,
+      "first_band_in_controller_steps": 13,
+      "band_epsilon": 0.01,
+      "mean_initial_batch_best": 0.6932380874999999,
+      "mean_controller_best": 0.72052645
+    },
+    "coordinate_descent": {
+      "mean_best": 0.7336741250000001,
+      "std_best": 0.009580315015534479,
+      "min_best": 0.6919145,
+      "max_best": 0.7358720000000001,
+      "mean_best_step": 17.65,
+      "best_per_repeat": [
+        0.7358720000000001,
+        0.7358720000000001,
+        0.6919145,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001
+      ],
+      "best_step_per_repeat": [
+        20,
+        5,
+        30,
+        16,
+        14,
+        5,
+        12,
+        26,
+        26,
+        20,
+        24,
+        24,
+        14,
+        24,
+        16,
+        18,
+        24,
+        5,
+        14,
+        16
+      ],
+      "mean_best_controller_step": 12.649999999999999,
+      "mean_final_best_controller_step": 14.882352941176471,
+      "final_best_in_controller_steps": 17,
+      "mean_first_band_controller_step": 11.928571428571429,
+      "first_band_in_controller_steps": 14,
+      "band_epsilon": 0.01,
+      "mean_initial_batch_best": 0.6932380874999999,
+      "mean_controller_best": 0.7328586125000001
+    },
+    "tpe": {
+      "mean_best": 0.7326137750000001,
+      "std_best": 0.004989596566169009,
+      "min_best": 0.71815875,
+      "max_best": 0.7358720000000001,
+      "mean_best_step": 18.3,
+      "best_per_repeat": [
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.73043525,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.725257,
+        0.71815875,
+        0.7272177499999999,
+        0.7272177499999999,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.73043525,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7358720000000001,
+        0.7272177499999999,
+        0.7358720000000001
+      ],
+      "best_step_per_repeat": [
+        22,
+        5,
+        20,
+        5,
+        29,
+        5,
+        25,
+        23,
+        24,
+        17,
+        22,
+        13,
+        20,
+        29,
+        5,
+        30,
+        23,
+        5,
+        28,
+        16
+      ],
+      "mean_best_controller_step": 13.3,
+      "mean_final_best_controller_step": 17.733333333333334,
+      "final_best_in_controller_steps": 15,
+      "mean_first_band_controller_step": 13.857142857142858,
+      "first_band_in_controller_steps": 14,
+      "band_epsilon": 0.01,
+      "mean_initial_batch_best": 0.6932380874999999,
+      "mean_controller_best": 0.7312983375
+    }
+  },
+  "pairs": [
+    {
+      "seed": 67,
+      "repeat": 1,
+      "initial_batch_seed": 67,
+      "controller_rng_seed": 67,
+      "initial_config_ids": [
+        "t10_i20_c128_eqwen3_vl_2b",
+        "t40_i0_c512_ejina_small",
+        "t5_i0_c64_ejina_nano",
+        "t40_i10_c256_ejina_nano",
+        "t5_i20_c512_ejina_small"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 1,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 11,
+          "best_so_far_mean_30": 0.7277755000000001,
+          "score_oracle_hits": 0,
+          "decision_seconds_total": 0.2607556036673486,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7115825,
+          "initial_batch_mean": 0.5351554500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 11,
+          "final_best_controller_step": 6,
+          "first_band_step": 11,
+          "first_band_controller_step": 6,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 1,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.7257204833333335,
+          "score_oracle_hits": 14,
+          "decision_seconds_total": 0.2277156854979694,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7115825,
+          "initial_batch_mean": 0.5351554500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 1,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7115825,
+          "best_step": 1,
+          "best_so_far_mean_30": 0.7115824999999998,
+          "score_oracle_hits": 7,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7115825,
+          "initial_batch_mean": 0.5351554500000001,
+          "controller_best": 0.7017610000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 1,
+          "final_best_controller_step": null,
+          "first_band_step": 1,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 1,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 9,
+          "best_so_far_mean_30": 0.7233503000000001,
+          "score_oracle_hits": 16,
+          "decision_seconds_total": 91.04240965098143,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7115825,
+          "initial_batch_mean": 0.5351554500000001,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 9,
+          "final_best_controller_step": 4,
+          "first_band_step": 8,
+          "first_band_controller_step": 3,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 1,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 20,
+          "best_so_far_mean_30": 0.7271298833333335,
+          "score_oracle_hits": 22,
+          "decision_seconds_total": 0.006472527980804443,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7115825,
+          "initial_batch_mean": 0.5351554500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 20,
+          "final_best_controller_step": 15,
+          "first_band_step": 16,
+          "first_band_controller_step": 11,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 1,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 22,
+          "best_so_far_mean_30": 0.7237838750000002,
+          "score_oracle_hits": 25,
+          "decision_seconds_total": 0.008427242282778025,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7115825,
+          "initial_batch_mean": 0.5351554500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 22,
+          "final_best_controller_step": 17,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 2,
+      "initial_batch_seed": 68,
+      "controller_rng_seed": 68,
+      "initial_config_ids": [
+        "t5_i10_c64_ejina_small",
+        "t40_i0_c512_eqwen3_vl_2b",
+        "t40_i20_c128_ejina_nano",
+        "t5_i0_c256_ejina_nano",
+        "t5_i20_c512_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 2,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c64_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t40_i20_c128_ejina_nano",
+            "t5_i0_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7186748583333334,
+          "score_oracle_hits": 22,
+          "decision_seconds_total": 0.24789440724998713,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.56326945,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 2,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c64_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t40_i20_c128_ejina_nano",
+            "t5_i0_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7186748583333334,
+          "score_oracle_hits": 28,
+          "decision_seconds_total": 0.22501015337184072,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.56326945,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 2,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c64_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t40_i20_c128_ejina_nano",
+            "t5_i0_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7186748583333334,
+          "score_oracle_hits": 15,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.56326945,
+          "controller_best": 0.7017610000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 2,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c64_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t40_i20_c128_ejina_nano",
+            "t5_i0_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7186748583333334,
+          "score_oracle_hits": 23,
+          "decision_seconds_total": 97.94422948453575,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.56326945,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 2,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c64_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t40_i20_c128_ejina_nano",
+            "t5_i0_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7186748583333334,
+          "score_oracle_hits": 28,
+          "decision_seconds_total": 0.012939126696437597,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.56326945,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 2,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c64_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t40_i20_c128_ejina_nano",
+            "t5_i0_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7186748583333334,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 0.007836672011762857,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.56326945,
+          "controller_best": 0.72874,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 3,
+      "initial_batch_seed": 69,
+      "controller_rng_seed": 69,
+      "initial_config_ids": [
+        "t10_i10_c512_ejina_small",
+        "t40_i0_c64_eqwen3_vl_2b",
+        "t5_i5_c64_ejina_nano",
+        "t40_i1_c512_ejina_nano",
+        "t5_i0_c512_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 3,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i10_c512_ejina_small",
+            "t40_i0_c64_eqwen3_vl_2b",
+            "t5_i5_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7115825,
+          "best_step": 15,
+          "best_so_far_mean_30": 0.6875320916666664,
+          "score_oracle_hits": 17,
+          "decision_seconds_total": 0.2465382544323802,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.603729,
+          "initial_batch_mean": 0.4605741,
+          "controller_best": 0.7115825,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 15,
+          "final_best_controller_step": 10,
+          "first_band_step": 15,
+          "first_band_controller_step": 10,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 3,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i10_c512_ejina_small",
+            "t40_i0_c64_eqwen3_vl_2b",
+            "t5_i5_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 20,
+          "best_so_far_mean_30": 0.7024679916666668,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 0.22387557942420244,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.603729,
+          "initial_batch_mean": 0.4605741,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 20,
+          "final_best_controller_step": 15,
+          "first_band_step": 18,
+          "first_band_controller_step": 13,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 3,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i10_c512_ejina_small",
+            "t40_i0_c64_eqwen3_vl_2b",
+            "t5_i5_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i10_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 10,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              4,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.688092,
+          "best_step": 22,
+          "best_so_far_mean_30": 0.6563213166666668,
+          "score_oracle_hits": 19,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.603729,
+          "initial_batch_mean": 0.4605741,
+          "controller_best": 0.688092,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 22,
+          "final_best_controller_step": 17,
+          "first_band_step": 22,
+          "first_band_controller_step": 17,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 3,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i10_c512_ejina_small",
+            "t40_i0_c64_eqwen3_vl_2b",
+            "t5_i5_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i10_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 10,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              4,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7152379999999999,
+          "best_step": 21,
+          "best_so_far_mean_30": 0.6721603416666665,
+          "score_oracle_hits": 26,
+          "decision_seconds_total": 85.93648292031139,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.603729,
+          "initial_batch_mean": 0.4605741,
+          "controller_best": 0.7152379999999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 21,
+          "final_best_controller_step": 16,
+          "first_band_step": 17,
+          "first_band_controller_step": 12,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 3,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i10_c512_ejina_small",
+            "t40_i0_c64_eqwen3_vl_2b",
+            "t5_i5_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_ejina_nano",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "jina_nano"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              0
+            ]
+          },
+          "best_mean_jev_support": 0.6919145,
+          "best_step": 30,
+          "best_so_far_mean_30": 0.6372766166666667,
+          "score_oracle_hits": 22,
+          "decision_seconds_total": 0.006110823713243008,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.603729,
+          "initial_batch_mean": 0.4605741,
+          "controller_best": 0.6919145,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 30,
+          "final_best_controller_step": 25,
+          "first_band_step": 25,
+          "first_band_controller_step": 20,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 3,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i10_c512_ejina_small",
+            "t40_i0_c64_eqwen3_vl_2b",
+            "t5_i5_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 20,
+          "best_so_far_mean_30": 0.6880949916666668,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.007556363940238953,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.603729,
+          "initial_batch_mean": 0.4605741,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 20,
+          "final_best_controller_step": 15,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 4,
+      "initial_batch_seed": 70,
+      "controller_rng_seed": 70,
+      "initial_config_ids": [
+        "t10_i5_c128_ejina_nano",
+        "t40_i0_c512_eqwen3_vl_2b",
+        "t5_i20_c512_ejina_small",
+        "t20_i0_c64_ejina_small",
+        "t5_i20_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 4,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c128_ejina_nano",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t20_i0_c64_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 6,
+          "best_so_far_mean_30": 0.7199160833333335,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24343886645510793,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5226038000000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 6,
+          "final_best_controller_step": 1,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 4,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c128_ejina_nano",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t20_i0_c64_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 6,
+          "best_so_far_mean_30": 0.7199160833333335,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.223417641595006,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5226038000000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 6,
+          "final_best_controller_step": 1,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 4,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c128_ejina_nano",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t20_i0_c64_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7153854583333332,
+          "score_oracle_hits": 19,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5226038000000001,
+          "controller_best": 0.71810425,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 4,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c128_ejina_nano",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t20_i0_c64_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 12,
+          "best_so_far_mean_30": 0.7188287333333335,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 88.90182945458218,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5226038000000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 12,
+          "final_best_controller_step": 7,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 4,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c128_ejina_nano",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t20_i0_c64_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.7181038333333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.009653094224631786,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5226038000000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 4,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c128_ejina_nano",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t20_i0_c64_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7153854583333332,
+          "score_oracle_hits": 28,
+          "decision_seconds_total": 0.007103731855750084,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5226038000000001,
+          "controller_best": 0.72874,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 5,
+      "initial_batch_seed": 71,
+      "controller_rng_seed": 71,
+      "initial_config_ids": [
+        "t40_i10_c64_ejina_nano",
+        "t5_i0_c512_eqwen3_vl_2b",
+        "t5_i20_c128_ejina_small",
+        "t40_i0_c256_ejina_small",
+        "t40_i20_c512_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 5,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c128_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.7115798083333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2521537272259593,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.55242505,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 9,
+          "first_band_controller_step": 4,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 5,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c128_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.7130296083333334,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.22861435497179627,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.55242505,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 9,
+          "first_band_controller_step": 4,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 5,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c128_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7206410000000001,
+          "best_step": 18,
+          "best_so_far_mean_30": 0.6998506833333334,
+          "score_oracle_hits": 22,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.55242505,
+          "controller_best": 0.7206410000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 18,
+          "final_best_controller_step": 13,
+          "first_band_step": 18,
+          "first_band_controller_step": 13,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 5,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c128_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 13,
+          "best_so_far_mean_30": 0.7136099083333335,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 91.87602024385706,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.55242505,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 13,
+          "final_best_controller_step": 8,
+          "first_band_step": 9,
+          "first_band_controller_step": 4,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 5,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c128_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 14,
+          "best_so_far_mean_30": 0.7133983166666666,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.009009473025798798,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.55242505,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 14,
+          "final_best_controller_step": 9,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 5,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c128_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 29,
+          "best_so_far_mean_30": 0.7037989000000001,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.00731395510956645,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.55242505,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 29,
+          "final_best_controller_step": 24,
+          "first_band_step": 19,
+          "first_band_controller_step": 14,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 6,
+      "initial_batch_seed": 72,
+      "controller_rng_seed": 72,
+      "initial_config_ids": [
+        "t10_i20_c128_ejina_small",
+        "t40_i0_c512_eqwen3_vl_2b",
+        "t5_i0_c64_ejina_nano",
+        "t40_i10_c256_ejina_nano",
+        "t5_i20_c512_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 6,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7211635500000002,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24662197940051556,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5317546,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 6,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7211635500000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22997366171330214,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5317546,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 6,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7211635500000002,
+          "score_oracle_hits": 23,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5317546,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 6,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7211635500000002,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 93.67621765006334,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5317546,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 6,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7211635500000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.012674535159021616,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5317546,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 6,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i20_c128_ejina_small",
+            "t40_i0_c512_eqwen3_vl_2b",
+            "t5_i0_c64_ejina_nano",
+            "t40_i10_c256_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7211635500000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007272331975400448,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5317546,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 7,
+      "initial_batch_seed": 75,
+      "controller_rng_seed": 75,
+      "initial_config_ids": [
+        "t5_i10_c128_eqwen3_vl_2b",
+        "t40_i0_c512_ejina_small",
+        "t40_i5_c64_ejina_nano",
+        "t5_i1_c512_ejina_nano",
+        "t5_i0_c64_ejina_small"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 7,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t40_i5_c64_ejina_nano",
+            "t5_i1_c512_ejina_nano",
+            "t5_i0_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 15,
+          "best_so_far_mean_30": 0.7156757750000001,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24852082040160894,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.68063425,
+          "initial_batch_mean": 0.45875274999999993,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 15,
+          "final_best_controller_step": 10,
+          "first_band_step": 15,
+          "first_band_controller_step": 10,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 7,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t40_i5_c64_ejina_nano",
+            "t5_i1_c512_ejina_nano",
+            "t5_i0_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 11,
+          "best_so_far_mean_30": 0.7237629750000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.227034377399832,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.68063425,
+          "initial_batch_mean": 0.45875274999999993,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 11,
+          "final_best_controller_step": 6,
+          "first_band_step": 11,
+          "first_band_controller_step": 6,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 7,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t40_i5_c64_ejina_nano",
+            "t5_i1_c512_ejina_nano",
+            "t5_i0_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t20_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 20,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              2,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7017610000000001,
+          "best_step": 7,
+          "best_so_far_mean_30": 0.6975356500000004,
+          "score_oracle_hits": 22,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.68063425,
+          "initial_batch_mean": 0.45875274999999993,
+          "controller_best": 0.7017610000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 7,
+          "final_best_controller_step": 2,
+          "first_band_step": 7,
+          "first_band_controller_step": 2,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 7,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t40_i5_c64_ejina_nano",
+            "t5_i1_c512_ejina_nano",
+            "t5_i0_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 11,
+          "best_so_far_mean_30": 0.7209150583333334,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 80.10713757760823,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.68063425,
+          "initial_batch_mean": 0.45875274999999993,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 11,
+          "final_best_controller_step": 6,
+          "first_band_step": 9,
+          "first_band_controller_step": 4,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 7,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t40_i5_c64_ejina_nano",
+            "t5_i1_c512_ejina_nano",
+            "t5_i0_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 12,
+          "best_so_far_mean_30": 0.7235196833333334,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.00919493567198515,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.68063425,
+          "initial_batch_mean": 0.45875274999999993,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 12,
+          "final_best_controller_step": 7,
+          "first_band_step": 8,
+          "first_band_controller_step": 3,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 7,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i10_c128_eqwen3_vl_2b",
+            "t40_i0_c512_ejina_small",
+            "t40_i5_c64_ejina_nano",
+            "t5_i1_c512_ejina_nano",
+            "t5_i0_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 25,
+          "best_so_far_mean_30": 0.7147550333333335,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.007436604704707861,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.68063425,
+          "initial_batch_mean": 0.45875274999999993,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 25,
+          "final_best_controller_step": 20,
+          "first_band_step": 16,
+          "first_band_controller_step": 11,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 8,
+      "initial_batch_seed": 76,
+      "controller_rng_seed": 76,
+      "initial_config_ids": [
+        "t40_i20_c64_ejina_nano",
+        "t5_i0_c512_eqwen3_vl_2b",
+        "t5_i10_c128_ejina_small",
+        "t40_i1_c512_ejina_small",
+        "t5_i0_c64_ejina_nano"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 8,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i10_c128_ejina_small",
+            "t40_i1_c512_ejina_small",
+            "t5_i0_c64_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.6999702833333336,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.2479927302338183,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.44037750000000003,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 14,
+          "first_band_controller_step": 9,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 8,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i10_c128_ejina_small",
+            "t40_i1_c512_ejina_small",
+            "t5_i0_c64_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 17,
+          "best_so_far_mean_30": 0.7082049833333334,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22355739120393991,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.44037750000000003,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 17,
+          "final_best_controller_step": 12,
+          "first_band_step": 15,
+          "first_band_controller_step": 10,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 8,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i10_c128_ejina_small",
+            "t40_i1_c512_ejina_small",
+            "t5_i0_c64_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7206410000000001,
+          "best_step": 17,
+          "best_so_far_mean_30": 0.6917788000000001,
+          "score_oracle_hits": 25,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.44037750000000003,
+          "controller_best": 0.7206410000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 17,
+          "final_best_controller_step": 12,
+          "first_band_step": 17,
+          "first_band_controller_step": 12,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 8,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i10_c128_ejina_small",
+            "t40_i1_c512_ejina_small",
+            "t5_i0_c64_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t40_i10_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 10,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              4,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7152379999999999,
+          "best_step": 14,
+          "best_so_far_mean_30": 0.6917501499999997,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 82.80510434042662,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.44037750000000003,
+          "controller_best": 0.7152379999999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 14,
+          "final_best_controller_step": 9,
+          "first_band_step": 13,
+          "first_band_controller_step": 8,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 8,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i10_c128_ejina_small",
+            "t40_i1_c512_ejina_small",
+            "t5_i0_c64_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 26,
+          "best_so_far_mean_30": 0.6831104750000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007120428141206503,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.44037750000000003,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 26,
+          "final_best_controller_step": 21,
+          "first_band_step": 24,
+          "first_band_controller_step": 19,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 8,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i10_c128_ejina_small",
+            "t40_i1_c512_ejina_small",
+            "t5_i0_c64_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.725257,
+          "best_step": 23,
+          "best_so_far_mean_30": 0.6928034999999999,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.009692959487438202,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.44037750000000003,
+          "controller_best": 0.725257,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 23,
+          "final_best_controller_step": 18,
+          "first_band_step": 19,
+          "first_band_controller_step": 14,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 9,
+      "initial_batch_seed": 80,
+      "controller_rng_seed": 80,
+      "initial_config_ids": [
+        "t20_i5_c512_ejina_small",
+        "t5_i0_c64_eqwen3_vl_2b",
+        "t40_i20_c64_ejina_nano",
+        "t5_i3_c256_ejina_nano",
+        "t5_i20_c64_ejina_small"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 9,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c512_ejina_small",
+            "t5_i0_c64_eqwen3_vl_2b",
+            "t40_i20_c64_ejina_nano",
+            "t5_i3_c256_ejina_nano",
+            "t5_i20_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 30,
+          "best_so_far_mean_30": 0.6873083250000004,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24761578626930714,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.4805023500000001,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 30,
+          "final_best_controller_step": 25,
+          "first_band_step": 30,
+          "first_band_controller_step": 25,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 9,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c512_ejina_small",
+            "t5_i0_c64_eqwen3_vl_2b",
+            "t40_i20_c64_ejina_nano",
+            "t5_i3_c256_ejina_nano",
+            "t5_i20_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 30,
+          "best_so_far_mean_30": 0.7053281833333332,
+          "score_oracle_hits": 28,
+          "decision_seconds_total": 0.22526234481483698,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.4805023500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 30,
+          "final_best_controller_step": 25,
+          "first_band_step": 11,
+          "first_band_controller_step": 6,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 9,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c512_ejina_small",
+            "t5_i0_c64_eqwen3_vl_2b",
+            "t40_i20_c64_ejina_nano",
+            "t5_i3_c256_ejina_nano",
+            "t5_i20_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.72874,
+          "best_step": 12,
+          "best_so_far_mean_30": 0.6979693583333331,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.4805023500000001,
+          "controller_best": 0.72874,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 12,
+          "final_best_controller_step": 7,
+          "first_band_step": 12,
+          "first_band_controller_step": 7,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 9,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c512_ejina_small",
+            "t5_i0_c64_eqwen3_vl_2b",
+            "t40_i20_c64_ejina_nano",
+            "t5_i3_c256_ejina_nano",
+            "t5_i20_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t40_i10_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 10,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              4,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7152379999999999,
+          "best_step": 14,
+          "best_so_far_mean_30": 0.6887026249999999,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 74.28545730095357,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.4805023500000001,
+          "controller_best": 0.7152379999999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 14,
+          "final_best_controller_step": 9,
+          "first_band_step": 13,
+          "first_band_controller_step": 8,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 9,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c512_ejina_small",
+            "t5_i0_c64_eqwen3_vl_2b",
+            "t40_i20_c64_ejina_nano",
+            "t5_i3_c256_ejina_nano",
+            "t5_i20_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 26,
+          "best_so_far_mean_30": 0.6808908750000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.0048430864699184895,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.4805023500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 26,
+          "final_best_controller_step": 21,
+          "first_band_step": 24,
+          "first_band_controller_step": 19,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 9,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c512_ejina_small",
+            "t5_i0_c64_eqwen3_vl_2b",
+            "t40_i20_c64_ejina_nano",
+            "t5_i3_c256_ejina_nano",
+            "t5_i20_c64_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t20_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 20,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              2,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.71815875,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.6902317916666668,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.007756717037409544,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.64113425,
+          "initial_batch_mean": 0.4805023500000001,
+          "controller_best": 0.71815875,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 11,
+          "first_band_controller_step": 6,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 10,
+      "initial_batch_seed": 0,
+      "controller_rng_seed": 0,
+      "initial_config_ids": [
+        "t40_i3_c256_eqwen3_vl_2b",
+        "t5_i20_c64_ejina_small",
+        "t5_i0_c512_ejina_nano",
+        "t40_i10_c64_ejina_nano",
+        "t5_i0_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 10,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i3_c256_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t5_i0_c512_ejina_nano",
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7097140000000001,
+          "best_step": 13,
+          "best_so_far_mean_30": 0.6844638583333338,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2434434611350298,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6274787500000001,
+          "initial_batch_mean": 0.44796625,
+          "controller_best": 0.7097140000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 13,
+          "final_best_controller_step": 8,
+          "first_band_step": 13,
+          "first_band_controller_step": 8,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 10,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i3_c256_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t5_i0_c512_ejina_nano",
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 11,
+          "best_so_far_mean_30": 0.7084963416666668,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.2242618384771049,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6274787500000001,
+          "initial_batch_mean": 0.44796625,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 11,
+          "final_best_controller_step": 6,
+          "first_band_step": 11,
+          "first_band_controller_step": 6,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 10,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i3_c256_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t5_i0_c512_ejina_nano",
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t20_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 20,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              2,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7244897499999999,
+          "best_step": 19,
+          "best_so_far_mean_30": 0.6846235666666668,
+          "score_oracle_hits": 26,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6274787500000001,
+          "initial_batch_mean": 0.44796625,
+          "controller_best": 0.7244897499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 19,
+          "final_best_controller_step": 14,
+          "first_band_step": 19,
+          "first_band_controller_step": 14,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 10,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i3_c256_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t5_i0_c512_ejina_nano",
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t20_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 20,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              2,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7244897499999999,
+          "best_step": 19,
+          "best_so_far_mean_30": 0.6846235666666668,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 1227.6391041618772,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6274787500000001,
+          "initial_batch_mean": 0.44796625,
+          "controller_best": 0.7244897499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 19,
+          "final_best_controller_step": 14,
+          "first_band_step": 19,
+          "first_band_controller_step": 14,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 10,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i3_c256_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t5_i0_c512_ejina_nano",
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 20,
+          "best_so_far_mean_30": 0.6937909583333334,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.005166429094970226,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6274787500000001,
+          "initial_batch_mean": 0.44796625,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 20,
+          "final_best_controller_step": 15,
+          "first_band_step": 16,
+          "first_band_controller_step": 11,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 10,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i3_c256_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t5_i0_c512_ejina_nano",
+            "t40_i10_c64_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 17,
+          "best_so_far_mean_30": 0.6880683166666669,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.007239865604788065,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6274787500000001,
+          "initial_batch_mean": 0.44796625,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 17,
+          "final_best_controller_step": 12,
+          "first_band_step": 17,
+          "first_band_controller_step": 12,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 11,
+      "initial_batch_seed": 1,
+      "controller_rng_seed": 1,
+      "initial_config_ids": [
+        "t10_i5_c512_eqwen3_vl_2b",
+        "t40_i0_c64_ejina_small",
+        "t5_i20_c64_ejina_nano",
+        "t40_i3_c256_ejina_nano",
+        "t40_i20_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 11,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c512_eqwen3_vl_2b",
+            "t40_i0_c64_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i3_c256_ejina_nano",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 7,
+          "best_so_far_mean_30": 0.7262238750000002,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24658471392467618,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5520209,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 7,
+          "final_best_controller_step": 2,
+          "first_band_step": 7,
+          "first_band_controller_step": 2,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 11,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c512_eqwen3_vl_2b",
+            "t40_i0_c64_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i3_c256_ejina_nano",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 7,
+          "best_so_far_mean_30": 0.7262238750000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22434998024255037,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5520209,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 7,
+          "final_best_controller_step": 2,
+          "first_band_step": 7,
+          "first_band_controller_step": 2,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 11,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c512_eqwen3_vl_2b",
+            "t40_i0_c64_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i3_c256_ejina_nano",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.6947002499999999,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.6922679166666666,
+          "score_oracle_hits": 24,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5520209,
+          "controller_best": 0.6894807499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 11,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c512_eqwen3_vl_2b",
+            "t40_i0_c64_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i3_c256_ejina_nano",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.6947002499999999,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.6922679166666666,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 181.66646762704477,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5520209,
+          "controller_best": 0.6894807499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 11,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c512_eqwen3_vl_2b",
+            "t40_i0_c64_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i3_c256_ejina_nano",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.7188765333333333,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.004841209389269352,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5520209,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 11,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i5_c512_eqwen3_vl_2b",
+            "t40_i0_c64_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i3_c256_ejina_nano",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 22,
+          "best_so_far_mean_30": 0.7125239166666669,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007055884227156639,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5520209,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 22,
+          "final_best_controller_step": 17,
+          "first_band_step": 11,
+          "first_band_controller_step": 6,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 12,
+      "initial_batch_seed": 2,
+      "controller_rng_seed": 2,
+      "initial_config_ids": [
+        "t10_i1_c256_ejina_small",
+        "t40_i20_c64_eqwen3_vl_2b",
+        "t5_i20_c512_ejina_nano",
+        "t40_i0_c128_ejina_nano",
+        "t5_i0_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 12,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_nano",
+            "t40_i0_c128_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 13,
+          "best_so_far_mean_30": 0.7094865166666667,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24277589982375503,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.41793494999999997,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 13,
+          "final_best_controller_step": 8,
+          "first_band_step": 13,
+          "first_band_controller_step": 8,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 12,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_nano",
+            "t40_i0_c128_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 26,
+          "best_so_far_mean_30": 0.710780275,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22506550792604685,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.41793494999999997,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 26,
+          "final_best_controller_step": 21,
+          "first_band_step": 9,
+          "first_band_controller_step": 4,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 12,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_nano",
+            "t40_i0_c128_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7206410000000001,
+          "best_step": 19,
+          "best_so_far_mean_30": 0.6934241833333333,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.41793494999999997,
+          "controller_best": 0.7206410000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 19,
+          "final_best_controller_step": 14,
+          "first_band_step": 19,
+          "first_band_controller_step": 14,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 12,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_nano",
+            "t40_i0_c128_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7206410000000001,
+          "best_step": 19,
+          "best_so_far_mean_30": 0.6934241833333333,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 156.06894673546776,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.41793494999999997,
+          "controller_best": 0.7206410000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 19,
+          "final_best_controller_step": 14,
+          "first_band_step": 19,
+          "first_band_controller_step": 14,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 12,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_nano",
+            "t40_i0_c128_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.7093902500000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.0051239556632936,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.41793494999999997,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 12,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_nano",
+            "t40_i0_c128_ejina_nano",
+            "t5_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 13,
+          "best_so_far_mean_30": 0.7075911833333334,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007154000457376242,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.41793494999999997,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 13,
+          "final_best_controller_step": 8,
+          "first_band_step": 13,
+          "first_band_controller_step": 8,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 13,
+      "initial_batch_seed": 42,
+      "controller_rng_seed": 42,
+      "initial_config_ids": [
+        "t10_i3_c64_ejina_nano",
+        "t40_i20_c512_eqwen3_vl_2b",
+        "t5_i0_c512_ejina_small",
+        "t40_i5_c128_ejina_small",
+        "t40_i0_c512_ejina_nano"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 13,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i3_c64_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t40_i5_c128_ejina_small",
+            "t40_i0_c512_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 10,
+          "best_so_far_mean_30": 0.7202749666666668,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24164375849068165,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52669145,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 10,
+          "final_best_controller_step": 5,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 13,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i3_c64_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t40_i5_c128_ejina_small",
+            "t40_i0_c512_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 12,
+          "best_so_far_mean_30": 0.7194835166666669,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 0.2231732509098947,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52669145,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 12,
+          "final_best_controller_step": 7,
+          "first_band_step": 12,
+          "first_band_controller_step": 7,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 13,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i3_c64_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t40_i5_c128_ejina_small",
+            "t40_i0_c512_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 28,
+          "best_so_far_mean_30": 0.7108157833333331,
+          "score_oracle_hits": 26,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52669145,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 28,
+          "final_best_controller_step": 23,
+          "first_band_step": 21,
+          "first_band_controller_step": 16,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 13,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i3_c64_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t40_i5_c128_ejina_small",
+            "t40_i0_c512_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 28,
+          "best_so_far_mean_30": 0.7108157833333331,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.91274091321975,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52669145,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 28,
+          "final_best_controller_step": 23,
+          "first_band_step": 21,
+          "first_band_controller_step": 16,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 13,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i3_c64_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t40_i5_c128_ejina_small",
+            "t40_i0_c512_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 14,
+          "best_so_far_mean_30": 0.7195105,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007918998133391142,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52669145,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 14,
+          "final_best_controller_step": 9,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 13,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i3_c64_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t40_i5_c128_ejina_small",
+            "t40_i0_c512_ejina_nano"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 20,
+          "best_so_far_mean_30": 0.7136231166666669,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007070405874401331,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52669145,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 20,
+          "final_best_controller_step": 15,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 14,
+      "initial_batch_seed": 777,
+      "controller_rng_seed": 777,
+      "initial_config_ids": [
+        "t20_i20_c64_ejina_nano",
+        "t5_i0_c512_eqwen3_vl_2b",
+        "t40_i0_c128_ejina_small",
+        "t5_i20_c256_ejina_small",
+        "t40_i10_c256_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 14,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t40_i0_c128_ejina_small",
+            "t5_i20_c256_ejina_small",
+            "t40_i10_c256_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 23,
+          "best_so_far_mean_30": 0.7171275833333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2465543607249856,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6824214999999999,
+          "initial_batch_mean": 0.5229061500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 23,
+          "final_best_controller_step": 18,
+          "first_band_step": 8,
+          "first_band_controller_step": 3,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 14,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t40_i0_c128_ejina_small",
+            "t5_i20_c256_ejina_small",
+            "t40_i10_c256_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.7183961583333336,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22264098329469562,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6824214999999999,
+          "initial_batch_mean": 0.5229061500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 8,
+          "first_band_controller_step": 3,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 14,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t40_i0_c128_ejina_small",
+            "t5_i20_c256_ejina_small",
+            "t40_i10_c256_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i10_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 10,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              4,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7152379999999999,
+          "best_step": 8,
+          "best_so_far_mean_30": 0.7021924833333332,
+          "score_oracle_hits": 28,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6824214999999999,
+          "initial_batch_mean": 0.5229061500000001,
+          "controller_best": 0.7152379999999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 8,
+          "final_best_controller_step": 3,
+          "first_band_step": 8,
+          "first_band_controller_step": 3,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 14,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t40_i0_c128_ejina_small",
+            "t5_i20_c256_ejina_small",
+            "t40_i10_c256_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i10_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 10,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              4,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7152379999999999,
+          "best_step": 8,
+          "best_so_far_mean_30": 0.7021924833333332,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 156.11577291460708,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6824214999999999,
+          "initial_batch_mean": 0.5229061500000001,
+          "controller_best": 0.7152379999999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 8,
+          "final_best_controller_step": 3,
+          "first_band_step": 8,
+          "first_band_controller_step": 3,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 14,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t40_i0_c128_ejina_small",
+            "t5_i20_c256_ejina_small",
+            "t40_i10_c256_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.7115747416666668,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.004627329297363758,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6824214999999999,
+          "initial_batch_mean": 0.5229061500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 14,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i20_c64_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t40_i0_c128_ejina_small",
+            "t5_i20_c256_ejina_small",
+            "t40_i10_c256_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 29,
+          "best_so_far_mean_30": 0.7035680833333333,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007205732632428408,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6824214999999999,
+          "initial_batch_mean": 0.5229061500000001,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 29,
+          "final_best_controller_step": 24,
+          "first_band_step": 29,
+          "first_band_controller_step": 24,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 15,
+      "initial_batch_seed": 2024,
+      "controller_rng_seed": 2024,
+      "initial_config_ids": [
+        "t5_i1_c128_ejina_nano",
+        "t40_i20_c512_eqwen3_vl_2b",
+        "t40_i3_c64_ejina_small",
+        "t5_i10_c512_ejina_small",
+        "t5_i20_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 15,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i1_c128_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t40_i3_c64_ejina_small",
+            "t5_i10_c512_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 6,
+          "best_so_far_mean_30": 0.7185652250000002,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.24391918489709496,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5378351,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 6,
+          "final_best_controller_step": 1,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 15,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i1_c128_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t40_i3_c64_ejina_small",
+            "t5_i10_c512_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 11,
+          "best_so_far_mean_30": 0.7176591000000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2213085638359189,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5378351,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 11,
+          "final_best_controller_step": 6,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 15,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i1_c128_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t40_i3_c64_ejina_small",
+            "t5_i10_c512_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7140345999999999,
+          "score_oracle_hits": 27,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5378351,
+          "controller_best": 0.725257,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 15,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i1_c128_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t40_i3_c64_ejina_small",
+            "t5_i10_c512_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7140345999999999,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.9444690430537,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5378351,
+          "controller_best": 0.725257,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 15,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i1_c128_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t40_i3_c64_ejina_small",
+            "t5_i10_c512_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.7167529750000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.009530259761959314,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5378351,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 15,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t5_i1_c128_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b",
+            "t40_i3_c64_ejina_small",
+            "t5_i10_c512_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7140345999999999,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007162685506045818,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.5378351,
+          "controller_best": 0.72874,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 16,
+      "initial_batch_seed": 123,
+      "controller_rng_seed": 123,
+      "initial_config_ids": [
+        "t10_i1_c128_eqwen3_vl_2b",
+        "t40_i20_c512_ejina_small",
+        "t5_i20_c64_ejina_nano",
+        "t40_i0_c256_ejina_nano",
+        "t5_i0_c512_ejina_small"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 16,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c128_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i0_c256_ejina_nano",
+            "t5_i0_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 27,
+          "best_so_far_mean_30": 0.6823054583333336,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2442992888391018,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6644827499999999,
+          "initial_batch_mean": 0.4947514,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 27,
+          "final_best_controller_step": 22,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 16,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c128_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i0_c256_ejina_nano",
+            "t5_i0_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 13,
+          "best_so_far_mean_30": 0.6994841583333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2240109401755035,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6644827499999999,
+          "initial_batch_mean": 0.4947514,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 13,
+          "final_best_controller_step": 8,
+          "first_band_step": 13,
+          "first_band_controller_step": 8,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 16,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c128_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i0_c256_ejina_nano",
+            "t5_i0_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.725257,
+          "best_step": 18,
+          "best_so_far_mean_30": 0.6815303333333331,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6644827499999999,
+          "initial_batch_mean": 0.4947514,
+          "controller_best": 0.725257,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 18,
+          "final_best_controller_step": 13,
+          "first_band_step": 18,
+          "first_band_controller_step": 13,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 16,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c128_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i0_c256_ejina_nano",
+            "t5_i0_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.725257,
+          "best_step": 18,
+          "best_so_far_mean_30": 0.6815303333333331,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.47496983315796,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6644827499999999,
+          "initial_batch_mean": 0.4947514,
+          "controller_best": 0.725257,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 18,
+          "final_best_controller_step": 13,
+          "first_band_step": 18,
+          "first_band_controller_step": 13,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 16,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c128_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i0_c256_ejina_nano",
+            "t5_i0_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 18,
+          "best_so_far_mean_30": 0.6951702583333333,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.006263359449803829,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6644827499999999,
+          "initial_batch_mean": 0.4947514,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 18,
+          "final_best_controller_step": 13,
+          "first_band_step": 14,
+          "first_band_controller_step": 9,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 16,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t10_i1_c128_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i0_c256_ejina_nano",
+            "t5_i0_c512_ejina_small"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 30,
+          "best_so_far_mean_30": 0.6829014583333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007296750787645578,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6644827499999999,
+          "initial_batch_mean": 0.4947514,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 30,
+          "final_best_controller_step": 25,
+          "first_band_step": 30,
+          "first_band_controller_step": 25,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 17,
+      "initial_batch_seed": 13,
+      "controller_rng_seed": 13,
+      "initial_config_ids": [
+        "t20_i5_c128_ejina_nano",
+        "t5_i0_c512_eqwen3_vl_2b",
+        "t5_i20_c64_ejina_small",
+        "t40_i0_c256_ejina_small",
+        "t40_i20_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 17,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c128_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 29,
+          "best_so_far_mean_30": 0.7059073833333332,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.24441818473860621,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5447024,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 29,
+          "final_best_controller_step": 24,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 17,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c128_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 22,
+          "best_so_far_mean_30": 0.7062630666666667,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.2255170913413167,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5447024,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 22,
+          "final_best_controller_step": 17,
+          "first_band_step": 16,
+          "first_band_controller_step": 11,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 17,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c128_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7048375,
+          "best_step": 25,
+          "best_so_far_mean_30": 0.6825578833333332,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5447024,
+          "controller_best": 0.7048375,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 25,
+          "final_best_controller_step": 20,
+          "first_band_step": 25,
+          "first_band_controller_step": 20,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 17,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c128_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t40_i20_c128_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 40,
+              "image_top_k": 20,
+              "chunk_size": 128,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              3,
+              5,
+              1,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7048375,
+          "best_step": 25,
+          "best_so_far_mean_30": 0.6825578833333332,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.48430749354884,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5447024,
+          "controller_best": 0.7048375,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 25,
+          "final_best_controller_step": 20,
+          "first_band_step": 25,
+          "first_band_controller_step": 20,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 17,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c128_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 24,
+          "best_so_far_mean_30": 0.7071390500000002,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.0048440610989928246,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5447024,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 24,
+          "final_best_controller_step": 19,
+          "first_band_step": 20,
+          "first_band_controller_step": 15,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 17,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i5_c128_ejina_nano",
+            "t5_i0_c512_eqwen3_vl_2b",
+            "t5_i20_c64_ejina_small",
+            "t40_i0_c256_ejina_small",
+            "t40_i20_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 23,
+          "best_so_far_mean_30": 0.70343265,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.00733892573043704,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.6947002499999999,
+          "initial_batch_mean": 0.5447024,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 23,
+          "final_best_controller_step": 18,
+          "first_band_step": 12,
+          "first_band_controller_step": 7,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 18,
+      "initial_batch_seed": 99,
+      "controller_rng_seed": 99,
+      "initial_config_ids": [
+        "t40_i5_c128_eqwen3_vl_2b",
+        "t5_i0_c512_ejina_small",
+        "t5_i20_c64_ejina_nano",
+        "t40_i1_c512_ejina_nano",
+        "t5_i20_c512_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 18,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i5_c128_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7228503000000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.24691825592890382,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5959339499999999,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 18,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i5_c128_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7228503000000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22300660936161876,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5959339499999999,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 18,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i5_c128_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7228503000000001,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5959339499999999,
+          "controller_best": 0.7115825,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 18,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i5_c128_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7228503000000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.91523462394252,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5959339499999999,
+          "controller_best": 0.7115825,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 18,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i5_c128_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7228503000000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.013079863041639328,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5959339499999999,
+          "controller_best": 0.73043525,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 18,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t40_i5_c128_eqwen3_vl_2b",
+            "t5_i0_c512_ejina_small",
+            "t5_i20_c64_ejina_nano",
+            "t40_i1_c512_ejina_nano",
+            "t5_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 5,
+          "best_so_far_mean_30": 0.7228503000000001,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007129529491066933,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7358720000000001,
+          "initial_batch_mean": 0.5959339499999999,
+          "controller_best": 0.72874,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 5,
+          "final_best_controller_step": null,
+          "first_band_step": 5,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 19,
+      "initial_batch_seed": 100,
+      "controller_rng_seed": 100,
+      "initial_config_ids": [
+        "t20_i0_c128_eqwen3_vl_2b",
+        "t5_i20_c512_ejina_small",
+        "t40_i20_c64_ejina_nano",
+        "t5_i1_c256_ejina_nano",
+        "t40_i20_c512_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 19,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i0_c128_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t40_i20_c64_ejina_nano",
+            "t5_i1_c256_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 9,
+          "best_so_far_mean_30": 0.7074564083333336,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.24402948608621955,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52987055,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 9,
+          "final_best_controller_step": 4,
+          "first_band_step": 9,
+          "first_band_controller_step": 4,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 19,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i0_c128_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t40_i20_c64_ejina_nano",
+            "t5_i1_c256_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 10,
+          "best_so_far_mean_30": 0.7065844750000001,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.22221231739968061,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52987055,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 10,
+          "final_best_controller_step": 5,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 19,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i0_c128_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t40_i20_c64_ejina_nano",
+            "t5_i1_c256_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7206410000000001,
+          "best_step": 27,
+          "best_so_far_mean_30": 0.689855375,
+          "score_oracle_hits": 29,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52987055,
+          "controller_best": 0.7206410000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 27,
+          "final_best_controller_step": 22,
+          "first_band_step": 25,
+          "first_band_controller_step": 20,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 19,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i0_c128_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t40_i20_c64_ejina_nano",
+            "t5_i1_c256_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c256_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 256,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              2,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7206410000000001,
+          "best_step": 27,
+          "best_so_far_mean_30": 0.689855375,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.70181815652177,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52987055,
+          "controller_best": 0.7206410000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 27,
+          "final_best_controller_step": 22,
+          "first_band_step": 25,
+          "first_band_controller_step": 20,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 19,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i0_c128_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t40_i20_c64_ejina_nano",
+            "t5_i1_c256_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 14,
+          "best_so_far_mean_30": 0.7065565416666667,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.009266433771699667,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52987055,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 14,
+          "final_best_controller_step": 9,
+          "first_band_step": 10,
+          "first_band_controller_step": 5,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 19,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i0_c128_eqwen3_vl_2b",
+            "t5_i20_c512_ejina_small",
+            "t40_i20_c64_ejina_nano",
+            "t5_i1_c256_ejina_nano",
+            "t40_i20_c512_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t10_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 10,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              1,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7272177499999999,
+          "best_step": 28,
+          "best_so_far_mean_30": 0.6920299666666667,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.007242443040013313,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.7097140000000001,
+          "initial_batch_mean": 0.52987055,
+          "controller_best": 0.7272177499999999,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 28,
+          "final_best_controller_step": 23,
+          "first_band_step": 27,
+          "first_band_controller_step": 22,
+          "band_epsilon": 0.01
+        }
+      }
+    },
+    {
+      "seed": 67,
+      "repeat": 20,
+      "initial_batch_seed": 314,
+      "controller_rng_seed": 314,
+      "initial_config_ids": [
+        "t20_i1_c256_ejina_small",
+        "t5_i20_c64_eqwen3_vl_2b",
+        "t40_i20_c512_ejina_nano",
+        "t5_i0_c128_ejina_nano",
+        "t40_i0_c64_eqwen3_vl_2b"
+      ],
+      "initial_batch_size": 5,
+      "controller_steps": 25,
+      "policies": {
+        "jit": {
+          "seed": 67,
+          "repeat": 20,
+          "policy": "jit",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i1_c256_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_nano",
+            "t5_i0_c128_ejina_nano",
+            "t40_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 6,
+          "best_so_far_mean_30": 0.7247827083333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.24498227378353477,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.430312,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 6,
+          "final_best_controller_step": 1,
+          "first_band_step": 2,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "jit_no_rules": {
+          "seed": 67,
+          "repeat": 20,
+          "policy": "jit_no_rules",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i1_c256_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_nano",
+            "t5_i0_c128_ejina_nano",
+            "t40_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 6,
+          "best_so_far_mean_30": 0.7247827083333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.22430149326100945,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.430312,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 6,
+          "final_best_controller_step": 1,
+          "first_band_step": 2,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "random": {
+          "seed": 67,
+          "repeat": 20,
+          "policy": "random",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i1_c256_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_nano",
+            "t5_i0_c128_ejina_nano",
+            "t40_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 2,
+          "best_so_far_mean_30": 0.7202520833333331,
+          "score_oracle_hits": 28,
+          "decision_seconds_total": 0.0,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.430312,
+          "controller_best": 0.7012510000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 2,
+          "final_best_controller_step": null,
+          "first_band_step": 2,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "llm": {
+          "seed": 67,
+          "repeat": 20,
+          "policy": "llm",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i1_c256_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_nano",
+            "t5_i0_c128_ejina_nano",
+            "t40_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c64_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 64,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              0,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.73043525,
+          "best_step": 2,
+          "best_so_far_mean_30": 0.7202520833333331,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 155.95898067066446,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.430312,
+          "controller_best": 0.7012510000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 2,
+          "final_best_controller_step": null,
+          "first_band_step": 2,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "coordinate_descent": {
+          "seed": 67,
+          "repeat": 20,
+          "policy": "coordinate_descent",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i1_c256_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_nano",
+            "t5_i0_c128_ejina_nano",
+            "t40_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.7229704583333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.008691961411386728,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.430312,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 2,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        },
+        "tpe": {
+          "seed": 67,
+          "repeat": 20,
+          "policy": "tpe",
+          "budget": 30,
+          "initial_config_ids": [
+            "t20_i1_c256_ejina_small",
+            "t5_i20_c64_eqwen3_vl_2b",
+            "t40_i20_c512_ejina_nano",
+            "t5_i0_c128_ejina_nano",
+            "t40_i0_c64_eqwen3_vl_2b"
+          ],
+          "best_config": {
+            "config_id": "t5_i20_c512_eqwen3_vl_2b",
+            "params": {
+              "text_top_k": 5,
+              "image_top_k": 20,
+              "chunk_size": 512,
+              "embedding_backend": "qwen3_vl_2b"
+            },
+            "param_idx": [
+              0,
+              5,
+              3,
+              2
+            ]
+          },
+          "best_mean_jev_support": 0.7358720000000001,
+          "best_step": 16,
+          "best_so_far_mean_30": 0.7229704583333335,
+          "score_oracle_hits": 30,
+          "decision_seconds_total": 0.0071720341220498085,
+          "initial_batch_size": 5,
+          "initial_batch_best": 0.73043525,
+          "initial_batch_mean": 0.430312,
+          "controller_best": 0.7358720000000001,
+          "controller_steps_evaluated": 25,
+          "final_best_step": 16,
+          "final_best_controller_step": 11,
+          "first_band_step": 2,
+          "first_band_controller_step": null,
+          "band_epsilon": 0.01
+        }
+      }
+    }
+  ],
+  "completed_at": "2026-11-03T21:24:20+0800"
+}

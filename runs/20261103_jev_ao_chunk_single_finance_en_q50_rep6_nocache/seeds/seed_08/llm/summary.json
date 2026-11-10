@@ -1,0 +1,33 @@
+{
+  "seed": 67,
+  "repeat": 9,
+  "policy": "llm",
+  "budget": 30,
+  "initial_config_ids": [
+    "t20_i5_c512_ejina_small",
+    "t5_i0_c64_eqwen3_vl_2b",
+    "t40_i20_c64_ejina_nano",
+    "t5_i3_c256_ejina_nano",
+    "t5_i20_c64_ejina_small"
+  ],
+  "best_config": {
+    "config_id": "t40_i10_c512_eqwen3_vl_2b",
+    "params": {
+      "text_top_k": 40,
+      "image_top_k": 10,
+      "chunk_size": 512,
+      "embedding_backend": "qwen3_vl_2b"
+    },
+    "param_idx": [
+      3,
+      4,
+      3,
+      2
+    ]
+  },
+  "best_mean_jev_support": 0.7152379999999999,
+  "best_step": 14,
+  "best_so_far_mean_30": 0.6887026249999999,
+  "score_oracle_hits": 30,
+  "decision_seconds_total": 74.28545730095357
+}

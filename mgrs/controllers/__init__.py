@@ -1,0 +1,1 @@
+"""Pluggable search controllers."""
