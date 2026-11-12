@@ -54,11 +54,9 @@ Images are transcribed into question-independent facts before judging. DQCR is a
 
 ## 🎬 Demo
 
-<p align="center">
-  <a href="assets/mgrs_demo.mp4"><strong>▶ Watch the MGRS demo (MP4, 9.5 s)</strong></a>
-</p>
+![Animated MGRS search trajectories compared with Random across the evaluation datasets](assets/mgrs_demo.gif)
 
-The video gives a short visual walkthrough of MGRS. The MP4 is included in this repository so it can be viewed or downloaded independently of the README.
+*Illustrative trajectories selected after the runs; historical scores shown in this demo involve different JEV models. The complete 20-seed comparison below is the main quantitative result.* [Download the MP4](assets/mgrs_demo.mp4).
 
 ## 📈 Results
 
