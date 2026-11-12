@@ -7,6 +7,7 @@
 <p align="center">
   <a href="#-overview">Overview</a> ·
   <a href="#-method">Method</a> ·
+  <a href="#-demo">Demo</a> ·
   <a href="#-results">Results</a> ·
   <a href="#-getting-started">Getting started</a> ·
   <a href="#-reproducibility">Reproducibility</a>
@@ -50,6 +51,14 @@ configuration reward = mean reward(q) over the fixed question set
 ```
 
 Images are transcribed into question-independent facts before judging. DQCR is an **evidence-level proxy reward**; it is not a recall metric or a direct measure of downstream answer accuracy.
+
+## 🎬 Demo
+
+<p align="center">
+  <a href="assets/mgrs_demo.mp4"><strong>▶ Watch the MGRS demo (MP4, 9.5 s)</strong></a>
+</p>
+
+The video gives a short visual walkthrough of MGRS. The MP4 is included in this repository so it can be viewed or downloaded independently of the README.
 
 ## 📈 Results
 
